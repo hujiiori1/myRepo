@@ -1,4 +1,4 @@
-// pages/verify/verify.js
+// pages/alarm/alarm.js
 Page({
 
   /**
@@ -9,8 +9,8 @@ Page({
   },
   //事件处理函数
   bindViewTap: function () {
-    wx.switchTab({
-      url: '../alarm/alarm'
+    wx.navigateTo({
+      url: '../report/report',
     })
   },
   /**

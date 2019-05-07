@@ -18,7 +18,7 @@
     </view>
   </view>
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" disabled="false">去认证</button>
+    <button class="weui-btn" type="primary" bindtap='bindViewTap'>去认证</button>
   </view>
   <a link='' value=''>>>跳过</a>
 </view>
