@@ -54,6 +54,6 @@
     </view>
   </view>
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='bindViewTap'>提交</button>
+    <button class="weui-btn" type="primary" bindtap='submitReport'>提交</button>
   </view>
 </view>

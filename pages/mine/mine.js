@@ -1,11 +1,13 @@
 // pages/mine/mine.js
+const app=getApp();
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    userInfo: {}
+    userInfo: {},
+    wxUserInfo: {}
   },
 
   /**
@@ -13,7 +15,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userInfo: getApp().globalData.userInfo,
+      userInfo: app.globalData.userInfo,
+      wxUserInfo: app.globalData.wxUserInfo,
     })
   },
 

@@ -2,10 +2,10 @@
 <view class="container">
   <view class="weui-cell">
     <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
     </view>
     <view class="weui-cell__bd">
-      <view>{{userInfo.nickName}}</view>
+      <view>{{wxUserInfo.nickName}}</view>
       <view style="font-size: 13px;color: #888888;">摘要信息</view>
     </view>
   </view>

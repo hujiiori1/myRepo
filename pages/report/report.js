@@ -5,6 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    reporterName:null,
+    reporterMobileNo: null,
+    reportContent: null,
+    eventLocation: null,
+    currentLocation: null,
     files: []
   },
   chooseImage: function (e) {
@@ -23,16 +28,19 @@ Page({
   chooseEventLocation: function (e) {
     wx.chooseLocation({
       success: function (res) {
-
+        this.eventLocation=res;
       },
     })
   },
   chooseCurrentLocation: function (e) {
     wx.chooseLocation({
       success: function (res) {
-
+        this.currentLocation = res;
       },
     })
+  },
+  submitReport: function (e) {
+//$$接口提交report
   },
   /**
    * 生命周期函数--监听页面加载
