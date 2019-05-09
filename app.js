@@ -10,6 +10,8 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        //$$接口：请求后台获取用户信息（后台调用微信获取openid，并带上其他数据）
+        this.globalData.userInfo={mobile:"",isAuthenticated:true};
       }
     })
     // 获取用户信息
@@ -20,7 +22,7 @@ App({
           wx.getUserInfo({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+              this.globalData.wxUserInfo = res.userInfo
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -34,6 +36,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    wxUserInfo: null,
+    userInfo:null
   }
 })

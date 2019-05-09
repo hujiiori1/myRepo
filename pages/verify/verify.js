@@ -5,19 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    canSkip: true
   },
   //事件处理函数
-  bindViewTap: function () {
+  CheckID: function () {
+    //$$接口认证身份信息
+    var isAuthenticated = "true"
+    if (isAuthenticated) {
+      wx.switchTab({
+        url: '../alarm/alarm'
+      })
+    }
+    else {
+      //弹出框
+    }
+  },
+  Skip: function () {
     wx.switchTab({
       url: '../alarm/alarm'
-    })
+    });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (options.canSkip == "false") {
+      canSkip = false
+    }
+    else {
+      canSkip = true
+    }
   },
 
   /**

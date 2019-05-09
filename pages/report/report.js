@@ -20,6 +20,20 @@ Page({
       }
     })
   },
+  chooseEventLocation: function (e) {
+    wx.chooseLocation({
+      success: function (res) {
+
+      },
+    })
+  },
+  chooseCurrentLocation: function (e) {
+    wx.chooseLocation({
+      success: function (res) {
+
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

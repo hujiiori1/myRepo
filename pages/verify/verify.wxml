@@ -18,7 +18,9 @@
     </view>
   </view>
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='bindViewTap'>去认证</button>
+    <button class="weui-btn" type="primary" bindtap='CheckID'>去认证</button>
   </view>
-  <a link='' value=''>>>跳过</a>
+  <view wx:if="{{canSkip}}">
+    <a link='' value='' bindtap='Skip'>>>跳过</a>
+  </view>
 </view>

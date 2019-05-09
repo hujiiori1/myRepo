@@ -1,9 +1,9 @@
 <view class="container">
 
   <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='bindViewTap'>违法犯罪举报</button>
+    <button class="weui-btn" type="primary" bindtap='GoToReport'>违法犯罪举报</button>
   </view>
     <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='bindViewTap'>视频连线</button>
+    <button class="weui-btn" type="primary" bindtap='RequestConnect'>视频连线</button>
   </view>
 </view>

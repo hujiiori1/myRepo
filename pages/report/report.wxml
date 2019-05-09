@@ -24,6 +24,16 @@
         <input class="weui-input" />
       </view>
     </view>
+    <view class="weui-cell weui-cell_input" bindtap='chooseEventLocation'>
+      <view class="weui-cell__hd">
+        <view class="weui-label" >事发位置</view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input" bindtap='chooseCurrentLocation'>
+      <view class="weui-cell__hd">
+        <view class="weui-label" >所在位置</view>
+      </view>
+    </view>
   </view>
   <view class="weui-uploader">
     <view class="weui-uploader__hd">

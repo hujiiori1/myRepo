@@ -5,7 +5,10 @@
     "pages/verify/verify",
     "pages/alarm/alarm",
     "pages/report/report",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/record/alarm_record",
+    "pages/record/report_record",
+    "pages/addMobile/addMobile"
   ],
   "window": {
     "backgroundTextStyle": "light",
