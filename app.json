@@ -8,7 +8,8 @@
     "pages/mine/mine",
     "pages/record/alarm_record",
     "pages/record/report_record",
-    "pages/addMobile/addMobile"
+    "pages/addMobile/addMobile",
+    "pages/room/room"
   ],
   "window": {
     "backgroundTextStyle": "light",

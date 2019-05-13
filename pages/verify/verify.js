@@ -35,6 +35,9 @@ Page({
     else {
       canSkip = true
     }
+    wx.setNavigationBarTitle({
+      title: '实名认证',
+    })
   },
 
   /**
