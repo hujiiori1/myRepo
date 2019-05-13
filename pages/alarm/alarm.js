@@ -41,6 +41,9 @@ Page({
     var canConnect = "false"
     if (canConnect) {
       //调用音视频连接
+      wx.navigateTo({
+        url: '../room/room',
+      })
     }
     else {
       //稍后再试
@@ -64,6 +67,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '报警服务',
+    });
     wx.showModal({
       title: '弹窗标题',
       content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
@@ -78,6 +84,7 @@ Page({
         }
       }
     });
+  
   },
 
   /**

@@ -17,6 +17,9 @@ Page({
         });
       }
     });
+    wx.setNavigationBarTitle({
+      title: '举报记录',
+    })
   },
   tabClick: function (e) {
     this.setData({
