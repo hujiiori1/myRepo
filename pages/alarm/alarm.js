@@ -38,16 +38,27 @@ Page({
   },
   RequestConnect: function () {
     //$$发起连接请求
-    var canConnect = "false"
-    if (canConnect) {
-      //调用音视频连接
-      wx.navigateTo({
-        url: '../room/room',
+    var timer = setInterval(function()
+    {
+      wx.showActionSheet({
+        itemList: ['接听','取消'],
+        success: function (res){
+          clearInterval(timer);
+        },
+        fail: function (res) { },
       })
-    }
-    else {
-      //稍后再试
-    }
+      var canConnect = false
+      if (canConnect) {
+        //调用音视频连接
+        wx.navigateTo({
+          url: '../room/room',
+        })
+      }
+      else {
+        //稍后再试
+      }
+    },5000);
+    
   },
   /**
    * 生命周期函数--监听页面加载

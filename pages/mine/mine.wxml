@@ -1,6 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-<view>124</view>
   <view class="weui-cell">
     <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>

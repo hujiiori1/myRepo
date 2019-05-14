@@ -41,6 +41,9 @@ Page({
   },
   submitReport: function (e) {
 //$$接口提交report
+  wx.navigateTo({
+    url: '../msg/msg_success',
+  })
   },
   /**
    * 生命周期函数--监听页面加载
