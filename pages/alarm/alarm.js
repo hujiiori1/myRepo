@@ -59,6 +59,16 @@ Page({
       }
     },5000);
     
+    var canConnect = false
+    if (canConnect) {
+      //调用音视频连接
+      wx.navigateTo({
+        url: '../room/room',
+      })
+    }
+    else {
+      //稍后再试
+    }
   },
   /**
    * 生命周期函数--监听页面加载

@@ -11,7 +11,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         //$$接口：请求后台获取用户信息（后台调用微信获取openid，并带上其他数据）
-        this.globalData.userInfo={mobile:"",isAuthenticated:true};
+        this.globalData.userInfo={mobile:"18616781000",isAuthenticated:true,idName:"胡吉"};
       }
     })
     // 获取用户信息
