@@ -48,7 +48,7 @@
     </view>
     <view class="weui-uploader__bd">
       <view class="weui-uploader__files" id="uploaderFiles">
-        <block wx:for="{{files}}" wx:key="*this">
+        <block wx:for="{{pics}}" wx:key="*this">
           <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
             <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
           </view>
@@ -57,20 +57,19 @@
       <view class="weui-uploader__input-box">
         <view class="weui-uploader__input" bindtap="chooseImage"></view>
       </view>
-    </view><view class="weui-uploader__hd">
+    </view>
+    <view class="weui-uploader__hd">
       <view class="weui-uploader__title">视频上传</view>
       <view class="weui-uploader__info">{{files.length}}/1</view>
     </view>
     <view class="weui-uploader__bd">
-      <view class="weui-uploader__files" id="uploaderFiles">
-        <block wx:for="{{files}}" wx:key="*this">
-          <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-          </view>
-        </block>
+      <view class="prew_video" hidden="{{video==''}}">
+        <video id="prew_video" autoplay="true" muted="true" bindfullscreenchange="bindVideoScreenChange" src="{{video}}"></video>
+        <image class="play" bindtap="bindPreviewVideo" src="../../static/img/play.png"></image>
+        <image class="delete" bindtap="bindDeleteVideo" src="../../static/img/delete.png"></image>
       </view>
       <view class="weui-uploader__input-box">
-        <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        <view class="weui-uploader__input" bindtap="chooseVideo"></view>
       </view>
     </view>
   </view>
