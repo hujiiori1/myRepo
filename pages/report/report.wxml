@@ -57,7 +57,8 @@
       <view class="weui-uploader__input-box">
         <view class="weui-uploader__input" bindtap="chooseImage"></view>
       </view>
-    </view><view class="weui-uploader__hd">
+    </view>
+    <view class="weui-uploader__hd">
       <view class="weui-uploader__title">视频上传</view>
       <view class="weui-uploader__info">{{files.length}}/1</view>
     </view>

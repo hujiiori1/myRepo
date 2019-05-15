@@ -91,20 +91,20 @@ Page({
     wx.setNavigationBarTitle({
       title: '报警服务',
     });
-    wx.showModal({
-      title: '弹窗标题',
-      content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
-      confirmText: "同意",
-      showCancel: false,
-      success: function (res) {
-        console.log(res);
-        if (res.confirm) {
-          console.log('用户点击主操作')
-        } else {
-          console.log('用户点击辅助操作')
-        }
-      }
-    });
+    //wx.showModal({
+    //  title: '弹窗标题',
+    //  content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
+    //  confirmText: "同意",
+     // showCancel: false,
+     // success: function (res) {
+     //   console.log(res);
+     //   if (res.confirm) {
+      //    console.log('用户点击主操作')
+      //  } else {
+       //   console.log('用户点击辅助操作')
+     //   }
+      //}
+    //});
   
   },
 

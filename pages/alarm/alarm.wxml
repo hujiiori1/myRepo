@@ -1,9 +1,11 @@
-<view class="container">
-
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='GoToReport'>违法犯罪举报</button>
-  </view>
-    <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='RequestConnect'>视频连线</button>
+<view class="container" >
+  <image class="header-bg" src='../../img/视频连线/bg.png'></image>
+  <view class="weui-btn-area" style="position: absolute,z-index: 1">
+    <button class="weui-btn" plain='true' type="primary" bindtap='RequestConnect'>
+    <image class='btnImg' src='../../img/视频连线/违法犯罪举报icon.png'></image>
+    </button>
+    <button class="weui-btn" plain='true' type="primary" bindtap='RequestConnect'>
+    <image class='btnImg' src='../../img/视频连线/视频连接icon.png'></image>
+    </button>
   </view>
 </view>
