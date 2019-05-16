@@ -1,12 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="weui-cell">
-    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
-    </view>
-    <view class="weui-cell__bd">
-      <view>{{wxUserInfo.nickName}}</view>
-      <view style="font-size: 13px;color: #888888;">摘要信息</view>
+  <view class="container">
+    <image class="image_bg" mode='aspectFill' src="../../imgs/个人中心/bg.png"></image>
+    <view class="weui-cell" style="position:absolute;z-index:1;padding:140rpx 40rpx">
+      <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      <view class="weui-cell__bd">
+        <view style="font-size: 14px;color: #FFFFFF">{{wxUserInfo.nickName}}</view>
+        <image wx:if="{{userInfo.isAuthenticated}}" class="image_auth" src="../../imgs/个人中心/已实名.png"></image>
+        <block wx:else>
+        <image class="image_auth" src="../../imgs/个人中心/去实名.png"></image>
+        </block>
+      </view>
     </view>
   </view>
   <view class="weui-cells weui-cells_after-title">

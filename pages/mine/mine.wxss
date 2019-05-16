@@ -8,5 +8,14 @@
   padding: 0rpx 0;
   box-sizing: border-box;
 } 
+.image_bg {
+    width: 750rpx;
+    height: 340rpx;
+    position: relative;
+}
 
-
+.image_auth {
+    width: 100rpx;
+    height: 40rpx;
+    position: relative;
+}
