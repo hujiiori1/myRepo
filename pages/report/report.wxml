@@ -17,14 +17,10 @@
         <input class="weui-input" value="{{userInfo.mobile}}"></input>
       </view>
     </view>
-    <view class="weui-cell weui-cell_input">
+    <view class="weui-cell weui-cell_input" style="display: flex;flex-direction: column;align-items:stretch">
       <view class="weui-cell__hd">
         <view class="weui-label">举报内容：</view>
       </view>
-      <view class="weui-cell__bd">
-      </view>
-    </view>
-    <view class="weui-cell weui-cell_input">
       <view class="weui-cell__bd">
         <textarea class="weui-textarea" placeholder="请输入内容" style="height: 2.3em" />
         <view class="weui-textarea-counter">0/200</view>
@@ -32,49 +28,53 @@
     </view>
 
     <view class="weui-cell weui-cell_input" bindtap='chooseEventLocation'>
-      <view class="weui-cell__hd">
-        <view class="weui-label">事发位置</view>
+      <view class="weui-cell__hd" style="display: flex;flex-direction: row;">
+        <image class="location_img" src="../../imgs/违法犯罪举报/定位(1).png"></image>
+        <view class="weui-label" style="width:max">事发位置</view>
+        <input class="" value="{{eventLocation.Name}}"></input>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="position: absolute;right: 20rpx;top:25rpx"></view>
       </view>
     </view>
     <view class="weui-cell weui-cell_input" bindtap='chooseCurrentLocation'>
-      <view class="weui-cell__hd">
+      <view class="weui-cell__hd" style="display: flex;flex-direction: row;">
+        <image class="location_img" src="../../imgs/违法犯罪举报/定位(1).png"></image>
         <view class="weui-label">所在位置</view>
+        <input class="" value="{{eventLocation.Name}}"></input>
+        <view class="weui-cell__ft weui-cell__ft_in-access" style="position: absolute;right: 20rpx;top:25rpx"></view>
       </view>
     </view>
   </view>
-  <view class="weui-uploader" style="">
-    <view class="weui-uploader__hd">
-      <view class="weui-uploader__title">图片上传</view>
-      <view class="weui-uploader__info">{{files.length}}/3</view>
+  <view class="upload_title">
+    <text decode="true" style="font-size:16px;">&emsp;图片上传：</text>
+    <text decode="true" style="font-size:12px">&emsp;最多上传3张图片(每张图片不超过2M）</text>
+  </view>
+  <view class="weui-uploader__bd" style="padding:10rpx 0 0 10rpx">
+    <view class="weui-uploader__files" id="uploaderFiles">
+      <block wx:for="{{pics}}" wx:key="*this">
+        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+          <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+        </view>
+      </block>
     </view>
-    <view class="weui-uploader__bd">
-      <view class="weui-uploader__files" id="uploaderFiles">
-        <block wx:for="{{pics}}" wx:key="*this">
-          <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
-            <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
-          </view>
-        </block>
-      </view>
-      <view class="weui-uploader__input-box">
-        <view class="weui-uploader__input" bindtap="chooseImage"></view>
-      </view>
-    </view>
-    <view class="weui-uploader__hd">
-      <view class="weui-uploader__title">视频上传</view>
-      <view class="weui-uploader__info">{{files.length}}/1</view>
-    </view>
-    <view class="weui-uploader__bd">
-      <view class="prew_video" hidden="{{video==''}}">
-        <video id="prew_video" autoplay="true" muted="true" bindfullscreenchange="bindVideoScreenChange" src="{{video}}"></video>
-        <image class="play" bindtap="bindPreviewVideo" src="../../static/img/play.png"></image>
-        <image class="delete" bindtap="bindDeleteVideo" src="../../static/img/delete.png"></image>
-      </view>
-      <view class="weui-uploader__input-box">
-        <view class="weui-uploader__input" bindtap="chooseVideo"></view>
-      </view>
+    <view class="weui-uploader__input-box">
+      <view class="weui-uploader__input" bindtap="chooseImage"></view>
     </view>
   </view>
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='submitReport'>提交</button>
+  <view class="upload_title">
+    <text decode="true" style="font-size:16px;">&emsp;视频上传：</text>
+    <text decode="true" style="font-size:12px">&emsp;最多上传1个视频(每个视频不超过20M）</text>
+  </view>
+  <view class="weui-uploader__bd" style="padding:10rpx 0 0 10rpx">
+    <view class="prew_video" hidden="{{video==''}}">
+      <video id="prew_video" autoplay="true" muted="true" bindfullscreenchange="bindVideoScreenChange" src="{{video}}"></video>
+      <image class="play" bindtap="bindPreviewVideo" src="../../static/img/play.png"></image>
+      <image class="delete" bindtap="bindDeleteVideo" src="../../static/img/delete.png"></image>
+    </view>
+    <view class="weui-uploader__input-box">
+      <view class="weui-uploader__input" bindtap="chooseVideo"></view>
+    </view>
+  </view>
+  <view style="display:flex;justify-content: center;padding:50rpx 0">
+    <image class="image_button" mode='scaleToFill' src="../../imgs/违法犯罪举报/提交.png" bindtap='GoToReport'></image>
   </view>
 </view>

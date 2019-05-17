@@ -3,8 +3,21 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:  stretch;
   justify-content: flex-start;
   padding: 0rpx 0;
   box-sizing: border-box;
 } 
+.location_img{
+  width:25rpx;
+  height:30rpx;
+  padding:8rpx 20rpx 0 0
+}
+.upload_title
+{
+background-color: #eeeeee
+}
+.image_button{
+  width: 620rpx;
+  height: 90rpx;
+}
