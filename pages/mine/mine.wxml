@@ -1,8 +1,9 @@
+
 <!--index.wxml-->
-<view class="container">
-  <view class="container">
+<view class="container" style="height:1334rpx">
+  <view class="container_top">
     <image class="image_bg" mode='aspectFill' src="../../imgs/个人中心/bg.png"></image>
-    <view class="weui-cell" style="position:absolute;z-index:1;padding:140rpx 40rpx">
+    <view class="weui-cell" style="position:absolute;z-index:1;padding:40rpx 40rpx">
       <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
       </view>
@@ -15,20 +16,23 @@
       </view>
     </view>
   </view>
+  <view class="container_list">
   <view class="weui-cells weui-cells_after-title">
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="../record/report_record">
       <view class="weui-cell__hd">
-        <image src="data:image/png;base6...XmYAAAAASUVORK5CYII=" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        <image src="../../imgs/个人中心/举报记录.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
       </view>
-      <view class="weui-cell__bd">cell standard</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access">举报记录</view>
+      <view class="weui-cell__bd" style='font-size: 14px'>举报记录</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
     <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active" url="../record/alarm_record">
       <view class="weui-cell__hd">
-        <image src="data:image/png;base6...XmYAAAAASUVORK5CYII=" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+        <image src="../../imgs/个人中心/视频连线记录.png" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
       </view>
-      <view class="weui-cell__bd">cell standard</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access">视频连线记录</view>
+      <view class="weui-cell__bd" style='font-size: 14px'>视频连线记录</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </navigator>
   </view>
+  </view>
 </view>
+

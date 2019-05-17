@@ -14,7 +14,6 @@
     "pages/msg/msg_fail"
   ],
   "window": {
-    "navigationStyle":"custom",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
@@ -25,11 +24,13 @@
     "list": [
       {
         "pagePath": "pages/alarm/alarm",
-        "text": "报警服务"
+        "iconPath": "imgs/底部菜单栏icon/1 (2).png",
+        "selectedIconPath": "imgs/底部菜单栏icon/2 (2).png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "iconPath": "imgs/底部菜单栏icon/1 (4).png",
+        "selectedIconPath": "imgs/底部菜单栏icon/2 (4).png"
       }
     ]
   }
