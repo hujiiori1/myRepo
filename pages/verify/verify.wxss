@@ -1,0 +1,34 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+} 
+.verify_img
+{
+  width: 450rpx;
+  height: 55rpx;
+  padding:60rpx 0 0 0;
+}
+.view_inside{
+  height: 550rpx;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 250rpx 0 0 0;
+}
+.image_bg {
+    width: 750rpx;
+    height: 1234rpx;
+}
+.image_110 {
+    width: 300rpx;
+    height: 85rpx;
+    position: relative;
+}

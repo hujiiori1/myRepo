@@ -1,26 +1,29 @@
 <view class="container">
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">真实姓名</view>
+  <image class="image_bg" mode='scaleToFill' src="../../imgs/实名认证页面/bg.png">
+  </image>
+  <view class="view_inside">
+    <image class="image_110" src="../../imgs/实名认证页面/110.png"></image>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">真实姓名</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="真实姓名" />
+        </view>
       </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="真实姓名" />
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">身份证号码</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="身份证号码" />
+        </view>
       </view>
     </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">身份证号码</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="身份证号码" />
-      </view>
+    <image class="verify_img" bindtap='CheckID' src="../../imgs/实名认证页面/去认证可点.png"></image>
+    <view wx:if="{{canSkip}}">
+      <text decode="true" bindtap='Skip' style="font-size:14px;color:#ffffff;padding:0 0 0 300rpx">下次再说</text>
     </view>
-  </view>
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='CheckID'>去认证</button>
-  </view>
-  <view wx:if="{{canSkip}}">
-    <a link='' value='' bindtap='Skip'>>>跳过</a>
   </view>
 </view>

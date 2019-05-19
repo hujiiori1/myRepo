@@ -1,26 +1,31 @@
 <view class="container">
-  <view class="weui-cells weui-cells_after-title">
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">手机号</view>
+  <image class="image_bg" mode='scaleToFill' src="../../imgs/实名认证页面/bg.png">
+  </image>
+  <view class="view_inside">
+    <image class="image_110" src="../../imgs/实名认证页面/110.png"></image>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <image class="mobile_img" src="../../imgs/登录页/手机号.png"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="手机号" />
+        </view>
       </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="手机号" />
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <image class="mobile_img" src="../../imgs/登录页/验证码.png"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="验证码" />
+        </view>
+        <view class="weui-cell__ft">
+          <image class="sendcode_img" src="../../imgs/登录页/发送验证码.png"></image>
+        </view>
       </view>
     </view>
-    <view class="weui-cell weui-cell_input">
-      <view class="weui-cell__hd">
-        <view class="weui-label">验证码</view>
-      </view>
-      <view class="weui-cell__bd">
-        <input class="weui-input" placeholder="验证码" />
-      </view>
-      <view class="weui-cell__ft">
-        <view class="weui-vcode-btn">获取验证码</view>
-      </view>
+    <view class="weui-btn-area">
+      <image class="verify_img" bindtap='checkVerifyCode' src="../../imgs/实名认证页面/去认证可点.png"></image>
     </view>
-  </view>
-  <view class="weui-btn-area">
-    <button class="weui-btn" type="primary" bindtap='checkVerifyCode'>确定</button>
   </view>
 </view>

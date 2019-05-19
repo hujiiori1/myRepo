@@ -11,7 +11,20 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         //$$接口：请求后台获取用户信息（后台调用微信获取openid，并带上其他数据）
-        this.globalData.userInfo={mobile:"18616781000",isAuthenticated:true,idName:"胡吉"};
+        wx.request({
+          url: 'https://wx110.heqifuhou.com/api/User/get_info', 
+          data: {
+            code:res.code,
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            console.log(res.data)
+          }
+        })
+        
+        this.globalData.userInfo={mobile:"",isAuthenticated:false,idName:"胡吉"};
       }
     })
     // 获取用户信息
