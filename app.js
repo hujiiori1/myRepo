@@ -15,22 +15,23 @@ App({
         wx.request({
           url: urlList.getUserInfoUrl, 
           data: {
-            code:res.code,
+            jscode:res.code,
+            type:'2'
           },
           header: {
             'content-type': 'application/json' // 默认值
           },
           success(res) {
-            console.log(res.data)
-          },
-          complete(res) {
-            var logs = wx.getStorageSync('logs') || []
-            logs.unshift(res.statusCode)
-            wx.setStorageSync('logs', logs)
+            console.log(res.data);
+            if(res.data.code=="200"){
+            this.globalData.userInfo = { mobile: res.data.MOBILE_NO, isAuthenticated: res.data.ID_NO!='', idName: res.data.ACCOUNT_NAME };
+            }
+            else
+            {}
           }
         })
         
-        this.globalData.userInfo={mobile:"18616781000",isAuthenticated:true,idName:"胡吉"};
+        
       }
     })
     // 获取用户信息
