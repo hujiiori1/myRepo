@@ -1,10 +1,11 @@
 //app.js
+const urlList = require('config.js');
 App({
   onLaunch: function () {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    //var logs = wx.getStorageSync('logs') || []
+    //logs.unshift(Date.now())
+    //wx.setStorageSync('logs', logs)
 
     // 登录
     wx.login({
@@ -12,7 +13,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         //$$接口：请求后台获取用户信息（后台调用微信获取openid，并带上其他数据）
         wx.request({
-          url: 'https://wx110.heqifuhou.com/api/User/get_info', 
+          url: urlList.getUserInfoUrl, 
           data: {
             code:res.code,
           },
@@ -21,10 +22,15 @@ App({
           },
           success(res) {
             console.log(res.data)
+          },
+          complete(res) {
+            var logs = wx.getStorageSync('logs') || []
+            logs.unshift(res.statusCode)
+            wx.setStorageSync('logs', logs)
           }
         })
         
-        this.globalData.userInfo={mobile:"",isAuthenticated:false,idName:"胡吉"};
+        this.globalData.userInfo={mobile:"18616781000",isAuthenticated:true,idName:"胡吉"};
       }
     })
     // 获取用户信息
