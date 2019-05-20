@@ -1,1 +1,11 @@
 /* pages/record/report_record.wxss */
+.page{
+  width: 750rpx;
+  height: 1334rpx;
+  background-color: #eeeeee
+}
+.location_img{
+  width:20rpx;
+  height:25rpx;
+padding: 0 5rpx 0 0
+}

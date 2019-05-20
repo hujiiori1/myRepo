@@ -1,2 +1,16 @@
-<!--pages/record/alarm_record.wxml-->
-<text>pages/record/alarm_record.wxml</text>
+<view class="page">
+  <view class="weui-panel">
+    <view class="weui-panel__hd">
+      <image class="location_img" src="../../imgs/个人中心/时间.png"></image>
+      <text>2019-03-19</text>
+      <text style="font-size:11px;padding:0 0 0 10rpx">17:21-18:34</text>
+      <text style="color:red;position: absolute;right:20rpx">已完成</text>
+    </view>
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size:13px;color:#999">接线员：张一一</view>
+        <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size:13px;color:#999">民警：李四四</view>
+      </view>
+    </view>
+  </view>
+</view>
