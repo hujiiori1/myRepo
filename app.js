@@ -10,28 +10,30 @@ App({
     // 登录
     wx.login({
       success: res => {
+        var that = this;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         //$$接口：请求后台获取用户信息（后台调用微信获取openid，并带上其他数据）
         wx.request({
-          url: urlList.getUserInfoUrl, 
+          url: urlList.getUserInfoUrl,
           data: {
-            jscode:res.code,
-            type:'2'
+            jscode: res.code,
+            type: '2'
           },
           header: {
             'content-type': 'application/json' // 默认值
           },
           success(res) {
-            console.log(res.data);
-            if(res.data.code=="200"){
-            this.globalData.userInfo = { mobile: res.data.MOBILE_NO, isAuthenticated: res.data.ID_NO!='', idName: res.data.ACCOUNT_NAME };
+            console.log(res);
+            if (res.data.code = 200) {
+              that.globalData.userInfo = { mobile: res.data.MOBILE_NO, isAuthenticated: res.data.ID_NO != '' && res.data.ID_NO!='null', idName: res.data.ID_NAME,idNo:res.data.ID_NO };
+              that.globalData.token = res.data.token;
+            } else {
+
             }
-            else
-            {}
           }
         })
-        
-        
+
+
       }
     })
     // 获取用户信息
@@ -57,6 +59,7 @@ App({
   },
   globalData: {
     wxUserInfo: null,
-    userInfo:null
+    userInfo: [],
+    token: null
   }
 })

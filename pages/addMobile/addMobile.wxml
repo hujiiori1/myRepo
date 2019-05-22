@@ -9,7 +9,7 @@
           <image class="mobile_img" src="../../imgs/登录页/手机号.png"></image>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="手机号" />
+          <input class="weui-input" bindinput='mobileInput' placeholder="手机号" />
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -17,10 +17,10 @@
           <image class="mobile_img" src="../../imgs/登录页/验证码.png"></image>
         </view>
         <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="验证码" />
+          <input class="weui-input" bindinput='codeInput' placeholder="验证码" />
         </view>
         <view class="weui-cell__ft">
-          <image class="sendcode_img" src="../../imgs/登录页/发送验证码.png"></image>
+          <image bindtap="sendCode" class="sendcode_img" src="../../imgs/登录页/发送验证码.png"></image>
         </view>
       </view>
     </view>

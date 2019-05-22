@@ -1,24 +1,82 @@
 // pages/verify/verify.js
+const urlList = require('../../config.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    canSkip: true
+    canSkip: true,
+    idName: '',
+    idNo: ''
+  },
+  idNameInput: function (e) {
+    this.setData({
+      idName: e.detail.value
+    })
+  },
+  idNoInput: function (e) {
+    this.setData({
+      idNo: e.detail.value
+    })
   },
   //事件处理函数
   CheckID: function () {
-    //$$接口认证身份信息
-    var isAuthenticated = "true"
-    if (isAuthenticated) {
-      wx.switchTab({
-        url: '../alarm/alarm'
+    var name = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,6}$/;
+    if (!name.test(this.data.idName)) {
+      wx.showToast({
+        title: '请输入正确的中文姓名',
+        icon: 'none',
+        duration: 2000
       })
+      return;
     }
-    else {
-      //弹出框
+    var idNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
+    if (this.data.idNo == '') {
+      wx.showToast({
+        title: '身份证号码不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
     }
+    else if (!idNo.test(this.data.idNo)) {
+      wx.showToast({
+        title: '身份证号码不正确',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+
+    var that = this
+    wx.request({
+      url: urlList.certificationUrl,
+      data: {
+        idname: this.data.idName,
+        idno: this.data.idNo,
+        token: app.globalData.token
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res);
+        if (res.data.code = 200) {
+          app.globalData.userInfo.isAuthenticated = true
+          app.globalData.userInfo.idName = that.data.idName
+          app.globalData.userInfo.idNo = that.data.idNo
+          wx.switchTab({
+            url: '../alarm/alarm'
+          })
+        } else {
+
+        }
+      }
+    })
+
+
   },
   Skip: function () {
     wx.switchTab({
@@ -30,11 +88,16 @@ Page({
    */
   onLoad: function (options) {
     if (options.canSkip == "false") {
-      canSkip = false
+      this.setData({
+        canSkip: false
+      })
     }
     else {
-      canSkip = true
+      this.setData({
+        canSkip: true
+      })
     }
+    console.log(this.data.canSkip)
     wx.setNavigationBarTitle({
       title: '实名认证',
     })
