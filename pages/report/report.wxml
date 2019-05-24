@@ -51,12 +51,14 @@
   <view class="weui-uploader__bd" style="padding:10rpx 0 0 10rpx">
     <view class="weui-uploader__files" id="uploaderFiles">
       <block wx:for="{{pics}}" wx:key="*this">
-        <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+        <view class="weui-uploader__file" style="position:relative" bindtap="previewImage" id="{{item}}">
           <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+          <!-- 删除按钮 -->        
+        <image class="closeImv" src="../../imgs/违法犯罪举报/delete.png" mode="scaleToFill" catchtap="deleteImg" data-id="{{index}}"></image>
         </view>
       </block>
     </view>
-    <view class="weui-uploader__input-box">
+    <view wx:if="{{pics.length<3}}" class="weui-uploader__input-box">
       <view class="weui-uploader__input" bindtap="chooseImage"></view>
     </view>
   </view>
@@ -65,16 +67,16 @@
     <text decode="true" style="font-size:12px">&emsp;最多上传1个视频(每个视频不超过20M）</text>
   </view>
   <view class="weui-uploader__bd" style="padding:10rpx 0 0 10rpx">
-    <view class="prew_video" hidden="{{video==''}}">
-      <video id="prew_video" autoplay="true" muted="true" bindfullscreenchange="bindVideoScreenChange" src="{{video}}"></video>
-      <image class="play" bindtap="bindPreviewVideo" src="../../static/img/play.png"></image>
-      <image class="delete" bindtap="bindDeleteVideo" src="../../static/img/delete.png"></image>
+    <view class="weui-uploader__files"  style="position:relative;width:300rpx;height:200rpx" hidden="{{video==''}}">
+      <video id="prew_video" autoplay="true" muted="true" object-fit="fit" bindfullscreenchange="bindVideoScreenChange" src="{{video}}"></video>
+      <!-- 删除按钮 -->        
+        <image class="closeImv" src="../../imgs/违法犯罪举报/delete.png" mode="scaleToFill" catchtap="deleteVideo" data-id="{{index}}"></image>
     </view>
-    <view class="weui-uploader__input-box">
+    <view wx:if="{{video==''}}" class="weui-uploader__input-box">
       <view class="weui-uploader__input" bindtap="chooseVideo"></view>
     </view>
   </view>
   <view style="display:flex;justify-content: center;padding:50rpx 0">
-    <image class="image_button" mode='scaleToFill' src="../../imgs/违法犯罪举报/提交.png" bindtap='GoToReport'></image>
+    <image class="image_button" mode='scaleToFill' src="../../imgs/违法犯罪举报/提交.png" bindtap='submitReport'></image>
   </view>
 </view>

@@ -21,3 +21,10 @@ background-color: #eeeeee
   width: 620rpx;
   height: 90rpx;
 }
+.closeImv {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  width: 50rpx;
+  height: 50rpx;
+}

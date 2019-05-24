@@ -1,4 +1,5 @@
 // pages/report/report.js
+const urlList = require('../../config.js');
 const app = getApp()
 Page({
 
@@ -57,9 +58,62 @@ Page({
     })
   },
   submitReport: function (e) {
+    if (this.data.pics.length > 0) {
+      wx.showToast({
+        title: '正在上传...',
+        icon: 'loading',
+        mask: true,
+        duration: 10000
+      })
+    }
+    var uploadImgCount = 0;
+    for (var i = 0, h = this.data.pics.length; i < h; i++) {
+      wx.uploadFile({
+        url: urlList.uploadFileUrl,
+        filePath: this.data.pics[i],
+        name: 'pic',
+        formData: {
+          'imgIndex': i
+        },
+        header: {
+          "Content-Type": "multipart/form-data"
+        },
+        success: function (res) {
+          uploadImgCount++;
+          var data = JSON.parse(res.data);
+          //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
+          if (uploadImgCount == this.data.length) {
+            wx.hideToast();
+          }
+        },
+        fail: function (res) {
+          wx.hideToast();
+          wx.showModal({
+            title: '错误提示',
+            content: '上传图片失败',
+            showCancel: false,
+            success: function (res) { }
+          })
+        }
+      })
+    }
+    
     //$$接口提交report
     wx.navigateTo({
       url: '../msg/msg_success',
+    })
+  },
+  deleteImg: function (e) {
+    var pics = this.data.pics;
+    var itemIndex = e.currentTarget.dataset.id;
+    pics.splice(itemIndex, 1);
+    this.setData({
+      pics: pics
+    })
+  },
+  deleteVideo: function (e) {
+    this.setData({
+      video: ''
     })
   },
   /**

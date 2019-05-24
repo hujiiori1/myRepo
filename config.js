@@ -4,6 +4,7 @@ const urlList = {
   getUserInfoUrl: basePath + 'User/login',//token
   getSmsCodeUrl: basePath + 'User/get_code',
   checkSmsCodeUrl: basePath + 'User/bind_mobile',
-  certificationUrl: basePath + 'User/certification'
+  certificationUrl: basePath + 'User/certification',
+  uploadFileUrl: basePath + 'User/certification'
 }
 module.exports = urlList;
