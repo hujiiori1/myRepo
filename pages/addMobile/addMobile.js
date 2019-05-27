@@ -66,7 +66,7 @@ Page({
       },
       success(res) {
         console.log(res);
-        if (res.data.code = 200) {
+        if (res.data.code == 200) {
           app.globalData.userInfo.mobile = that.data.mobile;
         } else {
 
@@ -104,7 +104,7 @@ Page({
       },
       success(res) {
         console.log(res);
-        if (res.data.code = 200) {
+        if (res.data.code == 200) {
 
         } else {
 

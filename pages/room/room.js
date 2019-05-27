@@ -13,7 +13,7 @@ Page({
   data: {
     template: 'float',
     webrtcroomComponent: null,
-    roomID: '', // 房间id
+    roomID: '100', // 房间id
     beauty: 0,
     muted: false,
     debug: false,

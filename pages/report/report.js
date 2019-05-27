@@ -8,11 +8,11 @@ Page({
    */
   data: {
     userInfo: {},
-    reporterName: null,
-    reporterMobileNo: null,
-    reportContent: null,
-    eventLocation: null,
-    currentLocation: null,
+    reporterName: '',
+    reporterMobile: '',
+    reportContent: '',
+    eventLocation: [],
+    currentLocation: [],
     pics: [],
     video: ''
   },
@@ -44,21 +44,85 @@ Page({
     })
   },
   chooseEventLocation: function (e) {
+    var that = this
     wx.chooseLocation({
       success: function (res) {
-        this.eventLocation = res;
+        that.setData({
+          eventLocation: res
+        })
+
       },
     })
   },
   chooseCurrentLocation: function (e) {
+    var that = this
     wx.chooseLocation({
       success: function (res) {
-        this.currentLocation = res;
+        that.setData({
+          currentLocation: res
+        })
       },
     })
   },
+  reporterNameInput: function (e) {
+    this.setData({
+      reporterName: e.detail.value
+    })
+  },
+  reporterMobileNoInput: function (e) {
+    this.setData({
+      reporterMobile: e.detail.value
+    })
+  },
+  reportContentInput: function (e) {
+    this.setData({
+      reportContent: e.detail.value
+    })
+  },
   submitReport: function (e) {
-    if (this.data.pics.length > 0) {
+    var name = /^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,6}$/;
+    if (!name.test(this.data.reporterName)) {
+      wx.showToast({
+        title: '请输入正确的中文姓名',
+        icon: 'none',
+        duration: 2000
+      })
+      return;
+    }
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (!myreg.test(this.data.reporterMobile)) {
+      wx.showToast({
+        title: '请输入正确的手机号',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+    if (this.data.reportContent == '') {
+      wx.showToast({
+        title: '举报内容不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+    if (this.data.eventLocation.length == 0) {
+      wx.showToast({
+        title: '事发位置不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+    if (this.data.currentLocation.length == 0) {
+      wx.showToast({
+        title: '所在位置不能为空',
+        icon: 'none',
+        duration: 2000
+      });
+      return false;
+    }
+    if (this.data.pics.length > 0 || this.data.video != '') {
       wx.showToast({
         title: '正在上传...',
         icon: 'loading',
@@ -66,25 +130,84 @@ Page({
         duration: 10000
       })
     }
-    var uploadImgCount = 0;
-    for (var i = 0, h = this.data.pics.length; i < h; i++) {
+    var files = []
+    for (i = 0; i < this.data.pics.length; i++) {
+      files.push({ type: "pic", path: this.data.pics[i], key: "" })
+    }
+    if (this.data.video != "") {
+      files.push({ type: "video", path: this.data.video, key: "" })
+    }
+    var that = this
+    var uploadCount = 0;
+    for (var i = 0; i < files.length; i++) {
+      console.log(files[i].path)
       wx.uploadFile({
         url: urlList.uploadFileUrl,
-        filePath: this.data.pics[i],
-        name: 'pic',
+        filePath: files[i].path,
+        name: "attachment[]",
         formData: {
-          'imgIndex': i
+          'index': i
         },
         header: {
           "Content-Type": "multipart/form-data"
         },
         success: function (res) {
-          uploadImgCount++;
-          var data = JSON.parse(res.data);
-          //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
-          if (uploadImgCount == this.data.length) {
-            wx.hideToast();
+          console.log(res)
+          uploadCount++
+          files[parseInt(JSON.parse(res.data).post.index)].key = JSON.parse(res.data).list[0]
+          if (uploadCount == files.length) {
+            var picKeys = []
+            var videoKeys = []
+            for (var i = 0; i < files.length; i++) {
+              if (files[i].type == 'pic') {
+                picKeys.push(files[i].key)
+              }
+              else if (files[i].type == 'video') {
+                videoKeys.push(files[i].key)
+              }
+            }
+            //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
+            //$$接口提交report
+            wx.request({
+              url: urlList.submitReportUrl,
+              method:"POST",
+              data: {
+                reporter_name: that.data.reporterName,
+                reporter_mobile: that.data.reporterMobile,
+                content: that.data.reportContent,
+                img_attachment: picKeys,
+                video_attachment: videoKeys,
+                event_name: that.data.eventLocation.name,
+                event_address: that.data.eventLocation.address,
+                event_lng: that.data.eventLocation.longitude,
+                event_lat: that.data.eventLocation.latitude,
+                curr_name: that.data.currentLocation.name,
+                curr_address: that.data.currentLocation.address,
+                curr_lng: that.data.currentLocation.longitude,
+                curr_lat: that.data.currentLocation.latitude,
+                token: app.globalData.token
+              },
+              header: { 'content-type': 'application/x-www-form-urlencoded' },
+              success(res) {
+                console.log(res);
+                if (res.data.code == 200) {
+                  wx.navigateTo({
+                    url: '../msg/msg_success',
+                  })
+                } else {
+                  wx.navigateTo({
+                    url: '../msg/msg_fail',
+                  })
+                }
+              },
+              fail(res) {
+                wx.navigateTo({
+                  url: '../msg/msg_fail',
+                })
+              }
+            })
           }
+
         },
         fail: function (res) {
           wx.hideToast();
@@ -97,11 +220,7 @@ Page({
         }
       })
     }
-    
-    //$$接口提交report
-    wx.navigateTo({
-      url: '../msg/msg_success',
-    })
+
   },
   deleteImg: function (e) {
     var pics = this.data.pics;
@@ -122,6 +241,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       userInfo: app.globalData.userInfo,
+      reporterName: app.globalData.userInfo.idName,
+      reporterMobile: app.globalData.userInfo.mobile
     })
     wx.setNavigationBarTitle({
       title: '违法犯罪举报',

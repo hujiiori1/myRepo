@@ -4,7 +4,7 @@ const app = getApp()
 
 Component({
   options: {
-    multipleSlots: true // 启用多slot支持
+    multipleSlots: true, // 启用多slot支持
   },
   properties: {
     roomID: {
@@ -473,7 +473,6 @@ Component({
       var roomID = this.data.roomID;
       var userID = this.data.userID;
       var sdkAppID = this.data.sdkAppID;
-
       var url = this.data.useCloud ? 'https://official.opensso.tencent-cloud.com/v4/openim/jsonvideoapp' : 'https://yun.tim.qq.com/v4/openim/jsonvideoapp';
       url += '?sdkappid=' + sdkAppID + "&identifier=" + userID + "&usersig=" + userSig + "&random=" + Date.now() + "&contenttype=json";
 

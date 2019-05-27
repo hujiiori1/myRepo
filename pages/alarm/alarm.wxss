@@ -23,6 +23,6 @@
   padding: 700rpx 0 0 0;
 }
 .image_button{
-  width: 320rpx;
-  height: 100rpx;
+  width: 373rpx;
+  height: 113rpx;
 }

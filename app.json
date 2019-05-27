@@ -1,5 +1,3 @@
-
-
 {
   "pages": [
     "pages/index/index",
@@ -13,7 +11,8 @@
     "pages/addMobile/addMobile",
     "pages/room/room",
     "pages/msg/msg_success",
-    "pages/msg/msg_fail"
+    "pages/msg/msg_fail",
+    "pages/components/alertview/alertview"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,11 +32,10 @@
         "pagePath": "pages/mine/mine",
         "iconPath": "imgs/底部菜单栏icon/1 (4).png",
         "selectedIconPath": "imgs/底部菜单栏icon/2 (4).png"
-      }
-      ,
+      },
       {
         "pagePath": "pages/logs/logs",
-        "text":"日志"
+        "text": "日志"
       }
     ]
   }
