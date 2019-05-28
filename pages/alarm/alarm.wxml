@@ -2,7 +2,10 @@
   <image class="image_bg" mode='aspectFill' src="../../imgs/视频连线/bg.png">
   </image>
   <view class="view_inside">
-    <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/违法犯罪举报icon.png" bindtap='GoToReport'></image>
-    <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/视频连接icon.png" bindtap='RequestConnect'></image>
+    <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/违法举报.png" bindtap='GoToReport'></image>
+    <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/{{connectionStatus==0?'视频连接.png':'视频连接2.png'}}" bindtap='RequestConnect'></image>
   </view>
+  
+    <alertview title="报警须知" content="视频连接icon视频连接icon视频连接icon视频连接icon视频连接icon视频连接icon"></alertview>
+ 
 </view>

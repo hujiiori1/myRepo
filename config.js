@@ -5,6 +5,10 @@ const urlList = {
   getSmsCodeUrl: basePath + 'User/get_code',
   checkSmsCodeUrl: basePath + 'User/bind_mobile',
   certificationUrl: basePath + 'User/certification',
-  uploadFileUrl: basePath + 'User/certification'
+  uploadFileUrl: basePath + 'Eventreport/upload',
+  submitReportUrl: basePath + 'Eventreport/createjs',
+  getAlarmRecordsUrl: basePath + 'Alarmcall/get_record',
+  createConnectionUrl: basePath + 'Alarmcall/create_connection',
+  getConnectionRoomUrl: basePath + 'Alarmcall/get_room'
 }
 module.exports = urlList;

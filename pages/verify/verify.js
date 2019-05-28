@@ -63,7 +63,7 @@ Page({
       },
       success(res) {
         console.log(res);
-        if (res.data.code = 200) {
+        if (res.data.code == 200) {
           app.globalData.userInfo.isAuthenticated = true
           app.globalData.userInfo.idName = that.data.idName
           app.globalData.userInfo.idNo = that.data.idNo

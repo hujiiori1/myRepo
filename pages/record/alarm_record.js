@@ -1,20 +1,42 @@
 // pages/record/alarm_record.js
+const urlList = require('../../config.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    alarmRecords: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-wx.setNavigationBarTitle({
-  title:'视频连线记录',
-})
+    wx.setNavigationBarTitle({
+      title: '视频连线记录',
+    })
+    var that = this
+    wx.request({
+      url: urlList.getAlarmRecordsUrl,
+      data: {
+        token: app.globalData.token
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res);
+        if (res.data.code == 200) {
+          this.setData({
+            alarmRecords:res.data
+          })
+        } else {
+
+        }
+      }
+    })
   },
 
   /**
