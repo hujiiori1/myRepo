@@ -21,7 +21,7 @@ Page({
     role: ROLE_TYPE.PRESENTER, // presenter 代表主播，audience 代表观众
     userId: '',
     userSig: '',
-    sdkAppID: account.sdkappid,
+    sdkAppID: '',//account.sdkappid,
     isErrorModalShow: false,
     autoplay: true,
     enableCamera: true,
@@ -139,6 +139,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.data.sdkAppID = app.globalData.sdkappid;
     this.data.roomID = options.roomID || '';
     this.data.userId = options.userId;
     this.data.userSig = options.userSig;

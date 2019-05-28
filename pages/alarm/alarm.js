@@ -52,6 +52,7 @@ Page({
     this.setData({
       connectionStatus: 1
     })
+    var that = this
     //$$发起连接请求
     wx.request({
       url: urlList.createConnectionUrl,
@@ -74,11 +75,17 @@ Page({
               success(res) {
                 console.log(res);
                 if (res.data.code == 200) {
-
+                  var roomID = res.data.room
                   clearInterval(timer)
+                  that.setData({
+                    connectionStatus: 0
+                  })
                   //调用音视频连接
                   wx.navigateTo({
-                    url: "../webrtc-room/room/room?roomID=100&userId=huji&userSig=eJxlz8FugkAQgOE7T0H2atNdFrawTTyAhWhEpSo28bKhsOpoBQorwTZ996a0TUk61**fTOZd03UdrcPVbZKmxSVXQl1LifR7HRF084dlCZlIlDCr7B-KtoRKimSnZNWhwRijhPQbyGSuYAc-xeFyhJ7W2Ul0J77XLUIo4ZyzfgL7Dmf*42jiDUbtc415EG7jffwg74J05kXFauFge0Lm061pRnjjJfK1ccFzw9NmHnIIzhU*4uJp2h7S8XJp*euIQhs3V-4mle2-jAfucNg7qeAsf-9xOHMs2*hpI6sairwLKDGYQU3yNUj70D4B*KRbaw__&template=float",
+                    url: "../webrtc-room/room/room?roomID="+roomID
+                    +"&userId="+app.globalData.userInfo.userid
+                      + "&userSig=" + app.globalData.userInfo.usersig
+                    +"&template=float",
                   })
                 }
                 else {
@@ -95,7 +102,7 @@ Page({
           wx.showToast({
             title: '请求连接失败',
           })
-          this.setData({
+          that.setData({
             connectionStatus: 0
           })
         }

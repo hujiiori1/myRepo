@@ -25,8 +25,16 @@ App({
           success(res) {
             console.log(res);
             if (res.data.code = 200) {
-              that.globalData.userInfo = { mobile: res.data.MOBILE_NO, isAuthenticated: res.data.ID_NO != '' && res.data.ID_NO!='null', idName: res.data.ID_NAME,idNo:res.data.ID_NO };
+              that.globalData.userInfo = {
+                userid:res.data.USER_ID, 
+                mobile: res.data.MOBILE_NO, 
+                isAuthenticated: res.data.ID_NO != '' && res.data.ID_NO!='null', 
+                idName: res.data.ID_NAME,
+                idNo:res.data.ID_NO,
+                usersig:res.data.usersig
+                };
               that.globalData.token = res.data.token;
+              that.globalData.sdkappid=res.data.sdkappid;
             } else {
 
             }
@@ -60,6 +68,7 @@ App({
   globalData: {
     wxUserInfo: null,
     userInfo: [],
-    token: null
+    token: null,
+    sdkappid:null
   }
 })

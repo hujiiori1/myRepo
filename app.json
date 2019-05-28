@@ -25,17 +25,13 @@
     "list": [
       {
         "pagePath": "pages/alarm/alarm",
-        "iconPath": "imgs/底部菜单栏icon/1 (2).png",
-        "selectedIconPath": "imgs/底部菜单栏icon/2 (2).png"
+        "iconPath": "imgs/底部菜单栏icon/2 (3).png",
+        "selectedIconPath": "imgs/底部菜单栏icon/1 (1).png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "iconPath": "imgs/底部菜单栏icon/1 (4).png",
-        "selectedIconPath": "imgs/底部菜单栏icon/2 (4).png"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "iconPath": "imgs/底部菜单栏icon/2 (4).png",
+        "selectedIconPath": "imgs/底部菜单栏icon/1 (2).png"
       }
     ]
   }
