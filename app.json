@@ -9,7 +9,7 @@
     "pages/record/alarm_record",
     "pages/record/report_record",
     "pages/addMobile/addMobile",
-    "pages/room/room",
+    "pages/webrtc-room/room/room",
     "pages/msg/msg_success",
     "pages/msg/msg_fail",
     "pages/components/alertview/alertview"
