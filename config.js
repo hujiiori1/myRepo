@@ -10,6 +10,7 @@ const urlList = {
   getReportListUrl: basePath + 'Eventreport/get_list',
   getAlarmRecordsUrl: basePath + 'Alarmcall/get_record',
   createConnectionUrl: basePath + 'Alarmcall/create_connection',
-  getConnectionRoomUrl: basePath + 'Alarmcall/get_room'
+  getConnectionRoomUrl: basePath + 'Alarmcall/get_room',
+  changeStatusAlarmUrl: basePath + 'Alarmcall/change_status'
 }
 module.exports = urlList;

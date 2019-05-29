@@ -80,13 +80,25 @@ Page({
                   that.setData({
                     connectionStatus: 0
                   })
-                  //调用音视频连接
-                  wx.navigateTo({
-                    url: "../webrtc-room/room/room?roomID="+roomID
-                    +"&userId="+app.globalData.userInfo.userid
-                      + "&userSig=" + app.globalData.userInfo.usersig
-                    +"&template=float",
+                  //记录接入时间
+                  wx.request({
+                    url: urlList.changeStatusAlarmUrl,
+                    data: {
+                      id: res.data.ALARM_CALL_ID,
+                      status:1,
+                      token: app.globalData.token
+                    },
+                    success(res) {
+                      //调用音视频连接
+                      wx.navigateTo({
+                        url: "../webrtc-room/room/room?roomID=" + roomID
+                          + "&userId=" + app.globalData.userInfo.userid
+                          + "&userSig=" + app.globalData.userInfo.usersig
+                          + "&template=float",
+                      })
+                    }
                   })
+                  
                 }
                 else {
                   //稍后再试
