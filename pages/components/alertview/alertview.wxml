@@ -4,7 +4,7 @@
     <image class="police_icon_img" src="../../../imgs/视频连线/弹框警徽.png"></image>
     <view class="wuxi_110_text">无锡公安</view>
     <view class="title_text">{{title}}</view>
-    <view class="title_content">{{content}}</view>
+    <text decode='true' class="title_content">{{content}}</text>
     <view class="divLine"></view>
     <view class="agree_text" bindtap="agree">同意须知条款</view>
   </view>

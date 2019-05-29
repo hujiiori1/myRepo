@@ -7,6 +7,7 @@ const urlList = {
   certificationUrl: basePath + 'User/certification',
   uploadFileUrl: basePath + 'Eventreport/upload',
   submitReportUrl: basePath + 'Eventreport/createjs',
+  getReportListUrl: basePath + 'Eventreport/get_list',
   getAlarmRecordsUrl: basePath + 'Alarmcall/get_record',
   createConnectionUrl: basePath + 'Alarmcall/create_connection',
   getConnectionRoomUrl: basePath + 'Alarmcall/get_room'
