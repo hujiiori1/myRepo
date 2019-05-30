@@ -12,14 +12,14 @@
     "pages/webrtc-room/room/room",
     "pages/msg/msg_success",
     "pages/msg/msg_fail",
-    "pages/components/alertview/alertview"
+    "pages/components/alertview/alertview",
+    "pages/components/navbar/navbar"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "登录",
-    "navigationBarTextStyle": "black",
-    "navigationStyle":"custom"
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {

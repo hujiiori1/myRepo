@@ -8,8 +8,8 @@
   box-sizing: border-box;
 } 
 .image_bg {
-    width: 750rpx;
-    height: 1234rpx;
+    width: 100vw;
+    height: 100vh;
     position: relative;
 }
 .view_inside{
@@ -20,7 +20,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 700rpx 0 0 0;
+  padding: 600rpx 0 0 0;
 }
 .image_button{
   width: 373rpx;

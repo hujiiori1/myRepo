@@ -6,11 +6,7 @@ App({
     //var logs = wx.getStorageSync('logs') || []
     //logs.unshift(Date.now())
     //wx.setStorageSync('logs', logs)
-    wx.getSystemInfo({
-      success: res=> {
-        this.globalData.systemInfo=res;
-      }
-    })
+
     // 登录
     wx.login({
       success: res => {
@@ -40,6 +36,7 @@ App({
               that.globalData.token = res.data.token;
               that.globalData.sdkappid = res.data.sdkappid;
               that.globalData.userInfo.isAuthenticated = false;//
+              //that.globalData.userInfo.mobile = '';
             } else {
 
             }
@@ -74,7 +71,6 @@ App({
     wxUserInfo: null,
     userInfo: [],
     token: null,
-    sdkappid: null,
-    systemInfo: null
+    sdkappid: null
   }
 })

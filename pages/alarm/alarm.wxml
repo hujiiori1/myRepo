@@ -1,5 +1,5 @@
 <view class="container">
-  <image class="image_bg" mode='aspectFill' src="../../imgs/视频连线/bg.png">
+  <image class="image_bg" mode='aspectFill'  src="../../imgs/视频连线/bg.png">
   </image>
   <view class="view_inside">
     <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/违法举报.png" bindtap='GoToReport'></image>

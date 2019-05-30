@@ -1,0 +1,10 @@
+<view class='nav-wrap' style='height: {{height*2 + 20}}px;'>
+  <view class='nav-title' style='line-height: {{height*2 + 44}}px;'>相当高大富豪{{height}}</view>
+  <view style='display: flex; justify-content: space-around;flex-direction: column'>
+    <view class='nav-capsule' style='height: {{height*2 + 44}}px;'>
+      <view bindtap='_navback'>
+        <image src='/imgs/个人中心/返回.png' mode='aspectFill' class='back-pre'></image>
+      </view>
+    </view>
+  </view>
+</view>

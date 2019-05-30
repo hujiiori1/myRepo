@@ -9,7 +9,8 @@ Page({
   data: {
     showAlert: true,
     //0-未连接 1-连接中 
-    connectionStatus: 0
+    connectionStatus: 0,
+    windowHeight:0
   },
   openNotification: function () {
 
@@ -141,7 +142,15 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    wx.getSystemInfo({
+      success: res => {
+        this.setData(
+          {
+            windowHeight:res.windowHeight*res.pixelRatio
+          }
+        )
+      }
+    })
   },
 
   /**

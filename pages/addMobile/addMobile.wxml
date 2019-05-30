@@ -1,5 +1,5 @@
 <view class="container">
-  <image class="image_bg" mode='scaleToFill' src="../../imgs/实名认证页面/bg.png">
+  <image class="image_bg" mode='widthFix' src="../../imgs/实名认证页面/bg.png">
   </image>
   <view class="view_inside">
     <image class="image_110" src="../../imgs/实名认证页面/110.png"></image>
@@ -25,7 +25,7 @@
       </view>
     </view>
     <view class="weui-btn-area">
-      <image class="verify_img" bindtap='checkVerifyCode' src="../../imgs/实名认证页面/去认证可点.png"></image>
+      <image class="verify_img" bindtap='checkVerifyCode' src="../../imgs/实名认证页面/去认证绿.png"></image>
     </view>
   </view>
 </view>
