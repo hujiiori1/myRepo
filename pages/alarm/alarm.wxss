@@ -9,7 +9,7 @@
 } 
 .image_bg {
     width: 750rpx;
-    height: 1134rpx;
+    height: 1234rpx;
     position: relative;
 }
 .view_inside{

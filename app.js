@@ -6,7 +6,11 @@ App({
     //var logs = wx.getStorageSync('logs') || []
     //logs.unshift(Date.now())
     //wx.setStorageSync('logs', logs)
-
+    wx.getSystemInfo({
+      success: res=> {
+        this.globalData.systemInfo=res;
+      }
+    })
     // 登录
     wx.login({
       success: res => {
@@ -26,16 +30,16 @@ App({
             console.log(res);
             if (res.data.code = 200) {
               that.globalData.userInfo = {
-                userid:res.data.USER_ID, 
-                mobile: res.data.MOBILE_NO, 
-                isAuthenticated: res.data.ID_NO != '' && res.data.ID_NO!='null', 
+                userid: res.data.USER_ID,
+                mobile: res.data.MOBILE_NO,
+                isAuthenticated: res.data.ID_NO != '' && res.data.ID_NO != 'null',
                 idName: res.data.ID_NAME,
-                idNo:res.data.ID_NO,
-                usersig:res.data.usersig
-                };
+                idNo: res.data.ID_NO,
+                usersig: res.data.usersig
+              };
               that.globalData.token = res.data.token;
-              that.globalData.sdkappid=res.data.sdkappid;
-              that.globalData.userInfo.isAuthenticated=false;//
+              that.globalData.sdkappid = res.data.sdkappid;
+              that.globalData.userInfo.isAuthenticated = false;//
             } else {
 
             }
@@ -70,6 +74,7 @@ App({
     wxUserInfo: null,
     userInfo: [],
     token: null,
-    sdkappid:null
+    sdkappid: null,
+    systemInfo: null
   }
 })
