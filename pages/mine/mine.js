@@ -1,5 +1,5 @@
 // pages/mine/mine.js
-const app=getApp();
+const app = getApp();
 Page({
 
   /**
@@ -10,6 +10,11 @@ Page({
     wxUserInfo: {}
   },
 
+  toVerify: function () {
+    wx.navigateTo({
+      url: '../verify/verify?canSkip=false',
+    })
+  },
   /**
    * Lifecycle function--Called when page load
    */

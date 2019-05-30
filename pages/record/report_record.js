@@ -20,6 +20,7 @@ Page({
         });
       }
     });
+    var that = this;
     wx.request({
       url: urlList.getReportListUrl,
       data: {
@@ -30,7 +31,9 @@ Page({
       success(res) {
         console.log(res);
         if (res.data.code == 200) {
-
+          that.setData({
+            reports: res.data.list
+          })
         }
       }
     })
@@ -40,5 +43,30 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
+    var status = ''
+    if (e.currentTarget.id == '1') {
+      status = '1'
+    }
+    else if (e.currentTarget.id == '2') {
+      status = '0'
+    }
+    var that = this
+    wx.request({
+      url: urlList.getReportListUrl,
+      data: {
+        count: 10,
+        page: 0,
+        status:status,
+        token: app.globalData.token
+      },
+      success(res) {
+        console.log(res);
+        if (res.data.code == 200) {
+          that.setData({
+            reports: res.data.list
+          })
+        }
+      }
+    })
   }
 });

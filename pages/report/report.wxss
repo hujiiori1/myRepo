@@ -25,6 +25,6 @@ background-color: #eeeeee
   position: absolute;
   right: 0rpx;
   top: 0rpx;
-  width: 50rpx;
-  height: 50rpx;
+  width: 32rpx;
+  height: 32rpx;
 }

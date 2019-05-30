@@ -39,14 +39,15 @@ Page({
       })
     }
     else {
-      toVerify()
+      this.toVerify()
     }
   },
   RequestConnect: function () {
     if (this.data.connectionStatus == 1)
-      return;
+      return
     if (!app.globalData.userInfo.isAuthenticated) {
-      toVerify()
+      this.toVerify()
+      return
     }
 
     this.setData({

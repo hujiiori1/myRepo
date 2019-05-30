@@ -26,7 +26,7 @@ Page({
       success(res) {
         console.log(res);
         if (res.data.code == 200) {
-          this.setData({
+          that.setData({
             alarmRecords:res.data
           })
         } else {

@@ -7,5 +7,13 @@
 .location_img{
   width:20rpx;
   height:25rpx;
-padding: 0 5rpx 0 0
+padding: 0 5rpx 0 -10rpx
+}
+
+.note2_item{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width: 350rpx;
 }
