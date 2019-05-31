@@ -1,13 +1,5 @@
 /* pages/addMobile/addMobile.wxss */
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0rpx 0;
-  box-sizing: border-box;
-} 
+
 .mobile_img
 {
   height: 60rpx;
@@ -25,23 +17,4 @@
   width: 602rpx;
   height: 71rpx;
   padding:60rpx 0;
-}
-.image_bg {
-    width: 100vw;
-    height: 100vh;
-}
-.image_110 {
-    width: 318rpx;
-    height: 95rpx;
-    position: relative;
-}
-.view_inside{
-  height: 550rpx;
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 250rpx 0 0 0;
 }

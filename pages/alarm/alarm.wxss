@@ -1,28 +1,19 @@
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0rpx 0;
-  box-sizing: border-box;
-} 
-.image_bg {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
-.view_inside{
-  height: 250rpx;
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 600rpx 0 0 0;
-}
+
 .image_button{
   width: 373rpx;
   height: 113rpx;
+  margin:100rpx 0 0 0;
+}
+
+.image_110 {
+    width: 329rpx;
+    height: 96rpx;
+    position: relative;
+    margin: 10rpx 0 0
+}
+
+.image_police {
+    width: 327rpx;
+    height: 331rpx;
+    margin: 100rpx 0 0
 }

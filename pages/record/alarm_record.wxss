@@ -1,7 +1,7 @@
 /* pages/record/alarm_record.wxss */
 .page{
-  width: 750rpx;
-  height: 1334rpx;
+  width: 100vw;
+  height: 100vh;
   background-color: #eeeeee
 }
 .location_img{

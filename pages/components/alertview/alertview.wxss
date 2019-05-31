@@ -42,5 +42,5 @@
   position: fixed;
 z-index: 2;
 left:50rpx;
-top:50rpx;
+top:100rpx;
 }

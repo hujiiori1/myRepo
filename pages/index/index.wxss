@@ -1,26 +1,7 @@
 
-
 .usermotto {
-  margin-top: 200px;
   font-size:13px;
   color: #aaa;
-  padding:50rpx 0;
-}
-
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 250rpx 0;
-  box-sizing: border-box;
-  background-image: url("http://wx110.heqifuhou.com/img/loginbg.png");
-  background-size: 750rpx
-} 
-
-.img_110
-{
-  width:366rpx;
-  height:107rpx;
+  position: fixed;
+  bottom: 40rpx;
 }
