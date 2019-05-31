@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "报警服务",
   "usingComponents": {
-    "alertview":"../components/alertview/alertview"
+    "alertview":"../components/alertview/alertview",
+    "navbar": "../components/navbar/navbar"
   }
 }
