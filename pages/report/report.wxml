@@ -22,8 +22,8 @@
         <view class="weui-label">举报内容：</view>
       </view>
       <view class="weui-cell__bd">
-        <textarea class="weui-textarea" bindinput="reportContentInput" placeholder="请输入内容" style="height: 2.3em" />
-        <view class="weui-textarea-counter">0/200</view>
+        <textarea class="weui-textarea" bindinput="reportContentInput" maxlength="200" placeholder="请输入内容" style="height: 4.3em"/>
+        <view class="weui-textarea-counter">{{reportContent.length}}/200</view>
       </view>
     </view>
 

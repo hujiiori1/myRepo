@@ -1,2 +1,7 @@
 <!--pages/help/help.wxml-->
-<text>建设中</text>
+<view class="container">
+<image class="content_image" mode="widthFix" src="../../imgs/求助服务/02.png"></image>
+<image class="content_image" mode="widthFix" src="../../imgs/求助服务/04.png"></image>
+<image class="content_image" mode="widthFix" src="../../imgs/求助服务/06.png"></image>
+<image class="content_image" mode="widthFix" src="../../imgs/求助服务/07.png"></image>
+</view>

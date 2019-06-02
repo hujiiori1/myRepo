@@ -8,7 +8,10 @@ Page({
     tabs: ["全部", "已处理", "未处理"],
     activeIndex: 0,
     sliderOffset: 0,
-    sliderLeft: 0
+    sliderLeft: 0,
+    page: 0,
+    status: '',
+    count: 10
   },
   onLoad: function () {
     var that = this;
@@ -24,8 +27,8 @@ Page({
     wx.request({
       url: urlList.getReportListUrl,
       data: {
-        count: 10,
-        page: 0,
+        count: this.data.count,
+        page: this.page,
         token: app.globalData.token
       },
       success(res) {
@@ -43,20 +46,23 @@ Page({
       sliderOffset: e.currentTarget.offsetLeft,
       activeIndex: e.currentTarget.id
     });
-    var status = ''
     if (e.currentTarget.id == '1') {
-      status = '1'
+      this.setData({
+        status: '1'
+      })
     }
     else if (e.currentTarget.id == '2') {
-      status = '0'
+      this.setData({
+        status: '0'
+      })
     }
     var that = this
     wx.request({
       url: urlList.getReportListUrl,
       data: {
-        count: 10,
-        page: 0,
-        status:status,
+        count: this.data.count,
+        page: this.page,
+        status: this.data.status,
         token: app.globalData.token
       },
       success(res) {
@@ -66,6 +72,34 @@ Page({
             reports: res.data.list
           })
         }
+      }
+    })
+  },
+  onReachBottom: function () {
+    var that = this;
+    // 显示加载图标
+    wx.showLoading({
+      title: '加载中',
+    })
+    // 页数+1
+    this.setData({
+      page: this.data.page + 1
+    })
+    wx.request({
+      url: urlList.getReportListUrl,
+      data: {
+        count: this.data.count,
+        page: this.page,
+        status: this.data.status,
+        token: app.globalData.token
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          reports: that.data.reports.concat(res.data.list)
+        })
+        // 隐藏加载框
+        wx.hideLoading();
       }
     })
   }

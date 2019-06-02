@@ -1,1 +1,18 @@
 /* pages/help/help.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  padding: 0rpx 0;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  background-color: #eeeeee
+} 
+
+.content_image{
+  width:248rpx;
+  height: 274rpx;
+  margin: 1rpx;
+}

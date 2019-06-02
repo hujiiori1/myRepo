@@ -14,8 +14,9 @@ Page({
     eventLocation: [],
     currentLocation: [],
     pics: [],
-    video: ''
+    video: '',
   },
+
   chooseImage: function (e) {
     var that = this;
     wx.chooseImage({
@@ -170,7 +171,7 @@ Page({
             //$$接口提交report
             wx.request({
               url: urlList.submitReportUrl,
-              method:"POST",
+              method: "POST",
               data: {
                 reporter_name: that.data.reporterName,
                 reporter_mobile: that.data.reporterMobile,
