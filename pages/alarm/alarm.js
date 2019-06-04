@@ -10,7 +10,8 @@ Page({
     showAlert: true,
     //0-未连接 1-连接中 
     connectionStatus: 0,
-    windowHeight:0
+    windowHeight:0,
+    timer:null
   },
   openNotification: function () {
 
@@ -45,7 +46,20 @@ Page({
   },
   RequestConnect: function () {
     if (this.data.connectionStatus == 1)
+    {
+      wx.showToast({
+        title: '已取消等待',
+      })
+      if(this.data.timer!=null)
+      {
+        clearInterval(this.data.timer)
+      }
+      this.setData({
+        connectionStatus:0
+      })
       return
+    }
+      
     if (!app.globalData.userInfo.isAuthenticated) {
       this.toVerify()
       return
@@ -67,7 +81,7 @@ Page({
           wx.showToast({
             title: '请求连接成功',
           })
-          var timer = setInterval(function () {
+          that.data.timer = setInterval(function () {
             wx.request({
               url: urlList.getConnectionRoomUrl,
               data: {
@@ -78,7 +92,7 @@ Page({
                 console.log(res);
                 if (res.data.code == 200) {
                   var roomID = res.data.room
-                  clearInterval(timer)
+                  clearInterval(that.data.timer)
                   that.setData({
                     connectionStatus: 0
                   })
@@ -86,7 +100,7 @@ Page({
                   wx.request({
                     url: urlList.changeStatusAlarmUrl,
                     data: {
-                      id: res.data.ALARM_CALL_ID,
+                      id: res.data.id,
                       status:1,
                       token: app.globalData.token
                     },
@@ -104,10 +118,7 @@ Page({
                 }
                 else {
                   //稍后再试
-                  clearInterval(timer)
-                  wx.navigateTo({
-                    url: "../webrtc-room/room/room?roomID=100&userId=huji&userSig=eJxlz8FugkAQgOE7T0H2atNdFrawTTyAhWhEpSo28bKhsOpoBQorwTZ996a0TUk61**fTOZd03UdrcPVbZKmxSVXQl1LifR7HRF084dlCZlIlDCr7B-KtoRKimSnZNWhwRijhPQbyGSuYAc-xeFyhJ7W2Ul0J77XLUIo4ZyzfgL7Dmf*42jiDUbtc415EG7jffwg74J05kXFauFge0Lm061pRnjjJfK1ccFzw9NmHnIIzhU*4uJp2h7S8XJp*euIQhs3V-4mle2-jAfucNg7qeAsf-9xOHMs2*hpI6sairwLKDGYQU3yNUj70D4B*KRbaw__&template=float",
-                  })
+
                 }
               }
             })
