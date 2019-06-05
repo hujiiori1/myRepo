@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    alarmRecords: []
+    alarmRecords: [],
+    page: 1,
+    count:10
   },
 
   /**
@@ -18,7 +20,9 @@ Page({
     wx.request({
       url: urlList.getAlarmRecordsUrl,
       data: {
-        token: app.globalData.token
+        token: app.globalData.token,
+        page:this.data.page,
+        count:this.data.count
       },
       header: {
         'content-type': 'application/json' // 默认值

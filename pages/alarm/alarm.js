@@ -85,7 +85,7 @@ Page({
             wx.request({
               url: urlList.getConnectionRoomUrl,
               data: {
-                id: res.data.ALARM_CALL_ID,
+                id: res.data.id,
                 token: app.globalData.token
               },
               success(res) {
@@ -101,10 +101,11 @@ Page({
                     url: urlList.changeStatusAlarmUrl,
                     data: {
                       id: res.data.id,
-                      status:1,
+                      status:"1",
                       token: app.globalData.token
                     },
                     success(res) {
+                      console.log(res);
                       //调用音视频连接
                       wx.navigateTo({
                         url: "../webrtc-room/room/room?roomID=" + roomID
