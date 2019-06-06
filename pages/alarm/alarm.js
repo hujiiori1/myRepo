@@ -11,7 +11,8 @@ Page({
     //0-未连接 1-连接中 
     connectionStatus: 0,
     windowHeight:0,
-    timer:null
+    timer:null,
+    queue:0
   },
   openNotification: function () {
 
@@ -118,6 +119,9 @@ Page({
                   
                 }
                 else {
+                  that.setData({
+                    queue: res.data.queue
+                  })
                   //稍后再试
 
                 }

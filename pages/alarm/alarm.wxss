@@ -17,3 +17,7 @@
     height: 331rpx;
     margin: 100rpx 0 0
 }
+.queue_text{
+  font-size: 14px;
+  color: #ddd
+}
