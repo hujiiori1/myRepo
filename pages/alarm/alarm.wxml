@@ -1,11 +1,11 @@
 <view class="container">
-  <image class="image_bg" mode='aspectFill'  src="../../imgs/登录页/bg.jpg">
-  </image>
+  <!--<image class="image_bg" mode='aspectFill'  src="../../imgs/登录页/bg.jpg">
+  </image>-->
   <view class="view_inside">
-  <image class="image_police" src="../../imgs/视频连线/警徽.png"></image>
-    <image class="image_110" src="../../imgs/视频连线/110.png"></image>
-    <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/违法举报.png" bindtap='GoToReport'></image>
-    <image class="image_button" mode='scaleToFill' src="../../imgs/视频连线/{{connectionStatus==0?'视频连接.png':'视频连接2.png'}}" bindtap='RequestConnect'></image>
+  <image class="image_police" src="../../imgs/video/police.png"></image>
+    <image class="image_110" src="../../imgs/video/110.png"></image>
+    <image class="image_button" mode='scaleToFill' src="../../imgs/video/report.png" bindtap='GoToReport'></image>
+    <image class="image_button" mode='scaleToFill' src="../../imgs/video/{{connectionStatus==0?'connect.png':'connect2.png'}}" bindtap='RequestConnect'></image>
     <text class="queue_text" wx:if="{{connectionStatus=='1'}}">当前排队人数:{{queue}}</text>
   </view>
   

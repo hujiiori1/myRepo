@@ -27,18 +27,18 @@
     "list": [
       {
         "pagePath": "pages/alarm/alarm",
-        "iconPath": "imgs/底部菜单栏icon/2 (3).png",
-        "selectedIconPath": "imgs/底部菜单栏icon/1 (1).png"
+        "iconPath": "imgs/bottom/2 (3).png",
+        "selectedIconPath": "imgs/bottom/1 (1).png"
       },
       {
         "pagePath": "pages/help/help",
-        "iconPath": "imgs/底部菜单栏icon/2 (4).png",
-        "selectedIconPath": "imgs/底部菜单栏icon/1 (2).png"
+        "iconPath": "imgs/bottom/2 (4).png",
+        "selectedIconPath": "imgs/bottom/1 (2).png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "iconPath": "imgs/底部菜单栏icon/2 (5).png",
-        "selectedIconPath": "imgs/底部菜单栏icon/1 (5).png"
+        "iconPath": "imgs/bottom/2 (5).png",
+        "selectedIconPath": "imgs/bottom/1 (5).png"
       }
       
     ]

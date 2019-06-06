@@ -1,10 +1,10 @@
 
 <view class="container">
-  <image class="image_bg" mode='widthFix' src="../../imgs/登录页/bg.jpg">
-  </image>
+  <!--<image class="image_bg" mode='widthFix' src="../../imgs/登录页/bg.jpg">
+  </image>-->
   <view class="view_inside">
-  <image class="image_police" src="../../imgs/登录页/警徽.png"></image>
-    <image class="image_110" src="../../imgs/实名认证页面/110.png"></image>
+  <image class="image_police" src="../../imgs/login/police.png"></image>
+    <image class="image_110" src="../../imgs/verify/110.png"></image>
     <view class="weui-cells weui-cells_after-title" style="margin-top:50rpx">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
@@ -23,7 +23,7 @@
         </view>
       </view>
     </view>
-    <image class="verify_img" bindtap='CheckID' src="../../imgs/实名认证页面/去认证绿.png" style="margin-top:50rpx"></image>
+    <image class="verify_img" bindtap='CheckID' src="../../imgs/verify/verifygreen.png" style="margin-top:50rpx"></image>
     <view wx:if="{{canSkip}}">
       <text decode="true" bindtap='Skip' style="font-size:14px;color:#ffffff;padding:0 0 0 300rpx">下次再说</text>
     </view>

@@ -82,6 +82,9 @@ Page({
           wx.showToast({
             title: '请求连接成功',
           })
+          that.setData({
+            queue: res.data.queue
+          })
           that.data.timer = setInterval(function () {
             wx.request({
               url: urlList.getConnectionRoomUrl,

@@ -1,7 +1,7 @@
 <view class="page">
   <view class="weui-panel">
     <view class="weui-panel__hd" wx:for="{{alarmRecords}}" wx:for-item="record" wx:key="record">
-      <image class="location_img" src="../../imgs/个人中心/时间.png"></image>
+      <image class="location_img" src="../../imgs/mine/time.png"></image>
       <text>{{record.date}}</text>
       <text style="font-size:11px;padding:0 0 0 10rpx">{{record.start_time}}-{{record.end_time}}</text>
       <text style="color:red;position: absolute;right:20rpx">{{record.status}}</text>

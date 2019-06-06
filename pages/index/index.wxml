@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <view class="container">
-  <image class="image_bg" mode='widthFix' src="../../imgs/登录页/bg.jpg"></image>
+  
   <view class="view_inside">
-    <image class="image_police" src="../../imgs/登录页/警徽.png"></image>
-    <image class="image_110" src="../../imgs/登录页/110.png"></image>
+    <image class="image_police" src="../../imgs/login/police.png"></image>
+    <image class="image_110" src="../../imgs/login/110.png"></image>
     <view class="userinfo" style="padding:100rpx 0 0 0">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <block wx:else>

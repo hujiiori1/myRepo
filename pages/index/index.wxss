@@ -5,3 +5,8 @@
   position: fixed;
   bottom: 40rpx;
 }
+.image_110 {
+    width: 366rpx;
+    height: 107rpx;
+    margin: 10rpx 0 0
+}
