@@ -77,8 +77,8 @@ Page({
     var isVerified = "true";
     if (isVerified) {
       if (app.globalData.userInfo.isAuthenticated) {
-        wx.switchTab({
-          url: '../alarm/alarm'
+        wx.navigateTo({
+          url: '../main/main'
         });
       } else {
         wx.navigateTo({

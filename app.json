@@ -14,7 +14,10 @@
     "pages/msg/msg_fail",
     "pages/components/alertview/alertview",
     "pages/components/navbar/navbar",
-    "pages/help/help"
+    "pages/help/help",
+    "pages/main/main",
+    "pages/webLink/webLink",
+    "pages/map/map"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,11 +39,15 @@
         "selectedIconPath": "imgs/bottom/1 (2).png"
       },
       {
+        "pagePath": "pages/map/map",
+        "iconPath": "imgs/bottom/2 (1).png",
+        "selectedIconPath": "imgs/bottom/1 (3).png"
+      },
+      {
         "pagePath": "pages/mine/mine",
         "iconPath": "imgs/bottom/2 (5).png",
         "selectedIconPath": "imgs/bottom/1 (5).png"
       }
-      
     ]
   }
 }

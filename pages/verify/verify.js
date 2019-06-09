@@ -67,8 +67,8 @@ Page({
           app.globalData.userInfo.isAuthenticated = true
           app.globalData.userInfo.idName = that.data.idName
           app.globalData.userInfo.idNo = that.data.idNo
-          wx.switchTab({
-            url: '../alarm/alarm'
+          wx.navigateTo({
+            url: '../main/main'
           })
         } else {
 

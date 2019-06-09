@@ -16,8 +16,8 @@ Page({
         url: '../addMobile/addMobile'
       });
     } else {
-      wx.switchTab({
-        url: '../alarm/alarm'
+      wx.navigateTo({
+        url: '../main/main'
       });
     }
   },

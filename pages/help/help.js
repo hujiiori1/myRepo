@@ -1,20 +1,43 @@
 // pages/help/help.js
+const urlList = require('../../config.js');
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    addresslist: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    wx.request({
+      url: urlList.GetAddressListUrl,
+      data: {
+        token: app.globalData.token
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res);
+        if (res.data.code == 200) {
+          that.setData({
+            addresslist: res.data.list
+          })
+        }
+      }
+    })
   },
-
+  toAddressPage: function (e) {
+    wx.navigateTo({
+      url: '../webLink/webLink?link=' + encodeURIComponent(e.currentTarget.dataset.link),
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

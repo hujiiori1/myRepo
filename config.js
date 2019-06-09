@@ -11,6 +11,9 @@ const urlList = {
   getAlarmRecordsUrl: basePath + 'Alarmcall/get_list',
   createConnectionUrl: basePath + 'Alarmcall/create_connection',
   getConnectionRoomUrl: basePath + 'Alarmcall/get_room',
-  changeStatusAlarmUrl: basePath + 'Alarmcall/change_status'
+  changeStatusAlarmUrl: basePath + 'Alarmcall/change_status',
+  GetNewscarouselUrl: basePath + 'News/get_carousel',
+  GetNewsListUrl: basePath + 'News/get_list',
+  GetAddressListUrl: basePath + 'Address/get_list'
 }
 module.exports = urlList;
