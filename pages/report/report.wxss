@@ -28,3 +28,10 @@ background-color: #eeeeee
   width: 32rpx;
   height: 32rpx;
 }
+.location_text{
+    font-size:14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width: 450rpx;
+}

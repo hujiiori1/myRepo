@@ -31,7 +31,7 @@
       <view class="weui-cell__hd" style="display: flex;flex-direction: row;">
         <image class="location_img" src="../../imgs/report/location.png"></image>
         <view class="weui-label" style="width:max">事发位置</view>
-        <input class="" value="{{eventLocation.name}}"></input>
+        <view class="location_text" style="">{{eventLocation.name}}</view>
         <view class="weui-cell__ft weui-cell__ft_in-access" style="position: absolute;right: 20rpx;top:25rpx"></view>
       </view>
     </view>
@@ -39,7 +39,7 @@
       <view class="weui-cell__hd" style="display: flex;flex-direction: row;">
         <image class="location_img" src="../../imgs/report/location.png"></image>
         <view class="weui-label">所在位置</view>
-        <input class="" value="{{currentLocation.name}}"></input>
+        <view class="location_text">{{currentLocation.name}}</view>
         <view class="weui-cell__ft weui-cell__ft_in-access" style="position: absolute;right: 20rpx;top:25rpx"></view>
       </view>
     </view>
