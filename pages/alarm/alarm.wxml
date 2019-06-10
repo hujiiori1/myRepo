@@ -1,6 +1,7 @@
 <view class="container">
   <!--<image class="image_bg" mode='aspectFill'  src="../../imgs/登录页/bg.jpg">
   </image>-->
+  <navbar title="我要举报" hideBack="true"></navbar>
   <view class="view_inside">
   <image class="image_police" src="../../imgs/video/police.png"></image>
     <image class="image_110" src="../../imgs/video/110.png"></image>

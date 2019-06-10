@@ -36,7 +36,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 0rpx 0;
   justify-content: flex-start;
   box-sizing: border-box;
@@ -50,7 +50,7 @@
 }
 .view_inside{
   height: 100vh;
-
+width:100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

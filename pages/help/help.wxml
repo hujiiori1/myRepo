@@ -1,5 +1,6 @@
 <!--pages/help/help.wxml-->
 <view class="container1">
+<navbar title="求助服务" hideBack="true"></navbar>
   <block wx:for="{{addresslist}}" wx:for-item="item" wx:key="item">
     <image class="content_image" mode="widthFix" src="{{item.ICON}}" data-link="{{item.URL}}" bindtap="toAddressPage"></image>
   </block>

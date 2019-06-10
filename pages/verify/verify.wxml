@@ -1,5 +1,6 @@
 
 <view class="container">
+<navbar title="实名认证" hideHome="true"></navbar>
   <!--<image class="image_bg" mode='widthFix' src="../../imgs/登录页/bg.jpg">
   </image>-->
   <view class="view_inside">

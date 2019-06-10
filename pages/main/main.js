@@ -76,7 +76,8 @@ Page({
     })
   },
   toBusiness: function (e) {
-    wx.navigateTo({
+    wx.switchTab({
+      url: '../business/business',
     })
   },
   /**

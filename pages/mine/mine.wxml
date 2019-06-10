@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container1" style="height:1334rpx">
+<navbar title="个人中心" hideBack="true"></navbar>
   <view class="container_top">
     <!--<image class="image_bg" mode='aspectFill' src="../../imgs/个人中心/bg.png"></image>-->
     <view class="weui-cell" style="position:absolute;z-index:1;padding:40rpx 40rpx">

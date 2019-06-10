@@ -62,7 +62,7 @@
 .module_content {
   display: flex;
   flex-direction: column;
-  width: 200rpx;
+  width: 220rpx;
 }
 
 .module_title {

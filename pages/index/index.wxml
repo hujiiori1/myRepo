@@ -1,6 +1,7 @@
 <!--index.wxml-->
+
 <view class="container">
-  
+  <navbar title="登录" hidden="true" hideHome="true" hideBack="true"></navbar>
   <view class="view_inside">
     <image class="image_police" src="../../imgs/login/police.png"></image>
     <image class="image_110" src="../../imgs/login/110.png"></image>
@@ -11,6 +12,7 @@
         <text class="userinfo-nickname">{{wxUserInfo.nickName}}</text>
       </block>
     </view>
+    <view class="usermotto"> {{motto}}</view>
   </view>
-  <view class="usermotto"> {{motto}}</view>
+  
 </view>

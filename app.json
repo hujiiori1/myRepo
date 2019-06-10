@@ -17,13 +17,20 @@
     "pages/help/help",
     "pages/main/main",
     "pages/webLink/webLink",
-    "pages/map/map"
+    "pages/map/map",
+    "pages/business/business"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于展示小程序在线地图"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "登录",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
@@ -31,7 +38,7 @@
       {
         "pagePath": "pages/alarm/alarm",
         "iconPath": "imgs/bottom/alarm(2).png",
-        "text":"我要举报",
+        "text": "我要举报",
         "selectedIconPath": "imgs/bottom/alarm(1).png"
       },
       {
@@ -47,14 +54,19 @@
         "selectedIconPath": "imgs/bottom/map(1).png"
       },
       {
+        "pagePath": "pages/business/business",
+        "iconPath": "imgs/bottom/business(2).png",
+        "text": "警务大厅",
+        "selectedIconPath": "imgs/bottom/business(1).png"
+      },
+      {
         "pagePath": "pages/mine/mine",
         "iconPath": "imgs/bottom/mine(2).png",
         "text": "我的",
         "selectedIconPath": "imgs/bottom/mine(1).png"
       }
-      
     ],
-    "color":"#aaaaaa",
-    "selectedColor":"#666666"
+    "color": "#aaaaaa",
+    "selectedColor": "#666666"
   }
 }

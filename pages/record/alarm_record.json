@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText":"视频连线记录",
-  "usingComponents": {}
+  "usingComponents": {
+    "navbar": "../components/navbar/navbar"
+  }
 }

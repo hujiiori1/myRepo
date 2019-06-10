@@ -11,6 +11,12 @@
   width: 140rpx;
   height: 59rpx;
 }
+.sendcode_button
+{
+  width: 180rpx;
+  height: 59rpx;
+  font-size:12px;
+}
 
 .verify_img
 {

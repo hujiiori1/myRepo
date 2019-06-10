@@ -1,4 +1,5 @@
 <view class="page">
+  <navbar title="求助服务"></navbar>
   <view class="page__bd">
     <view class="weui-tab">
       <view class="weui-navbar">
@@ -14,8 +15,8 @@
 
           <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
             <view class="weui-panel__hd">
-            <text>聚众赌博举报</text>
-            <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
+              <text>聚众赌博举报</text>
+              <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
             </view>
             <view class="weui-panel__bd">
               <view class="weui-media-box weui-media-box_text">
@@ -24,18 +25,19 @@
                 <view class="weui-media-box__info">
                   <view class="weui-media-box__info__meta">{{report.CREATE_TIME}}</view>
                   <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
-                 <!--<image class="location_img" src="../../imgs/个人中心/小定位.png"></image>--> 
-                  <text class="note2_item">{{report.EVENT_LOCATION_NAME}}</text>
+                    <!--<image class="location_img" src="../../imgs/个人中心/小定位.png"></image>-->
+                    <text class="note2_item">{{report.EVENT_LOCATION_NAME}}</text>
                   </view>
                 </view>
               </view>
             </view>
           </view>
         </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 1}}"><view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
             <view class="weui-panel__hd">
-            <text>聚众赌博举报</text>
-            <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
+              <text>聚众赌博举报</text>
+              <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
             </view>
             <view class="weui-panel__bd">
               <view class="weui-media-box weui-media-box_text">
@@ -44,17 +46,19 @@
                 <view class="weui-media-box__info">
                   <view class="weui-media-box__info__meta">{{report.CREATE_TIME}}</view>
                   <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
-                 <!--<image class="location_img" src="../../imgs/个人中心/小定位.png"></image>--> 
-                  <text class="note2_item">{{report.EVENT_LOCATION_NAME}}</text>
+                    <!--<image class="location_img" src="../../imgs/个人中心/小定位.png"></image>-->
+                    <text class="note2_item">{{report.EVENT_LOCATION_NAME}}</text>
                   </view>
                 </view>
               </view>
             </view>
-          </view></view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}"><view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
+          </view>
+        </view>
+        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
             <view class="weui-panel__hd">
-            <text>违法犯罪举报</text>
-            <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
+              <text>违法犯罪举报</text>
+              <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
             </view>
             <view class="weui-panel__bd">
               <view class="weui-media-box weui-media-box_text">
@@ -63,13 +67,14 @@
                 <view class="weui-media-box__info">
                   <view class="weui-media-box__info__meta">{{report.CREATE_TIME}}</view>
                   <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">
-                 <!--<image class="location_img" src="../../imgs/个人中心/小定位.png"></image>--> 
-                  <text class="note2_item">{{report.EVENT_LOCATION_NAME}}</text>
+                    <!--<image class="location_img" src="../../imgs/个人中心/小定位.png"></image>-->
+                    <text class="note2_item">{{report.EVENT_LOCATION_NAME}}</text>
                   </view>
                 </view>
               </view>
             </view>
-          </view></view>
+          </view>
+        </view>
       </view>
     </view>
   </view>

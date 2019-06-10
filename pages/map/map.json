@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "在线地图",
-  "usingComponents": {}
+  "usingComponents": {
+    "navbar": "../components/navbar/navbar"
+  }
 }

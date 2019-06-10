@@ -9,7 +9,10 @@ Page({
    */
   data: {
     mobile: '',
-    smsCode: ''
+    smsCode: '',
+    sendStatus: 0,
+    second: 30,
+    timer: null
   },
   mobileInput: function (e) {
     this.setData({
@@ -21,7 +24,7 @@ Page({
       smsCode: e.detail.value
     })
   },
-  checkMobile:function(){
+  checkMobile: function () {
     var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
     if (this.data.mobile.length < 11) {
       wx.showToast({
@@ -41,10 +44,9 @@ Page({
     return true;
   },
   checkVerifyCode: function () {
-    if(!this.checkMobile())
-    return;
-    if(this.data.smsCode.length!=4)
-    {
+    if (!this.checkMobile())
+      return;
+    if (this.data.smsCode.length != 4) {
       wx.showToast({
         title: '验证码长度有误！',
         icon: 'none',
@@ -91,8 +93,11 @@ Page({
     }
   },
   sendCode: function () {
+    if (this.sendStatus == 1)
+      return;
     if (!this.checkMobile())
       return;
+    var self = this
     wx.request({
       url: urlList.getSmsCodeUrl,
       data: {
@@ -105,7 +110,21 @@ Page({
       success(res) {
         console.log(res);
         if (res.data.code == 200) {
-
+          self.setData({
+            sendStatus: 1
+          })
+          self.data.timer = setInterval(function () {
+            self.setData({
+              second: self.data.second - 1
+            })
+            if (self.data.second <= 0) {
+              clearInterval(self.data.timer)
+              self.setData({
+                sendStatus: 0,
+                second:30
+              })
+            }
+          }, 1000)
         } else {
 
         }
