@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "求助服务",
+  "navigationBarTitleText": "社会联动",
   "usingComponents": {
     "navbar": "../components/navbar/navbar"
   }

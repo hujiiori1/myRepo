@@ -24,7 +24,7 @@
     </view>
     <view class="module " bindtap="toHelp">
       <view class="module_content ">
-        <view class="module_title ">求助服务</view>
+        <view class="module_title ">社会联动</view>
         <view class="module_desc ">一键连线</view>
       </view>
       <image class="img_module " src="../../imgs/main/help.png "></image>
