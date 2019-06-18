@@ -7,15 +7,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showAlert: true,
+    showAlert: false,
+    alertAgreed:false,
     //0-未连接 1-连接中 
     connectionStatus: 0,
-    windowHeight:0,
-    timer:null,
-    queue:0
+    windowHeight: 0,
+    timer: null,
+    queue: 0,
+    action: 0
   },
   openNotification: function () {
 
+  },
+  showAlert: function () {
+    if(this.data.alertAgreed==false)
+    {
+      this.setData({
+        showAlert: true
+      })
+      return true
+    }
+    else{
+      return false
+    }
+  },
+  agree: function () {
+    this.setData({
+      showAlert: false,
+      alertAgreed:true
+    })
+    if(this.data.action==1){
+      this.GoToReport()
+    }
+    if (this.data.action == 2) {
+      this.RequestConnect()
+    }
   },
   toVerify: function () {
     wx.showModal({
@@ -34,8 +60,26 @@ Page({
       }
     })
   },
+  showReminder: function () {
+    wx.showToast({
+      title: '警方在需要了解现场情况时，会联系你，请注意接通。有急难险等危人身、财产公共安全时请直接拨打110',
+      duration: 3000
+    })
+
+  },
   //事件处理函数
   GoToReport: function () {
+    if(this.data.showAlert===true){
+      return;
+    }
+    if (this.data.alertAgreed==false) {
+      this.showAlert()
+      this.setData({
+        action: 1
+      })
+      return;
+    }
+
     if (app.globalData.userInfo.isAuthenticated) {
       wx.navigateTo({
         url: '../report/report',
@@ -46,26 +90,34 @@ Page({
     }
   },
   RequestConnect: function () {
-    if (this.data.connectionStatus == 1)
-    {
+    if (this.data.showAlert === true) {
+      return;
+    }
+    if (this.data.alertAgreed == false) {
+      this.showAlert()
+      this.setData({
+        action: 2
+      })
+      return;
+    }
+    if (this.data.connectionStatus == 1) {
       wx.showToast({
         title: '已取消等待',
       })
-      if(this.data.timer!=null)
-      {
+      if (this.data.timer != null) {
         clearInterval(this.data.timer)
       }
       this.setData({
-        connectionStatus:0
+        connectionStatus: 0
       })
       return
     }
-      
+
     if (!app.globalData.userInfo.isAuthenticated) {
       this.toVerify()
       return
     }
-
+    //this.showReminder()
     this.setData({
       connectionStatus: 1
     })
@@ -80,7 +132,7 @@ Page({
         console.log(res);
         if (res.data.code == 200 || res.data.code == 300) {
           wx.showToast({
-            title: '请求连接成功',
+            title: '请求视频成功',
           })
           that.setData({
             queue: res.data.queue
@@ -105,7 +157,7 @@ Page({
                     url: urlList.changeStatusAlarmUrl,
                     data: {
                       id: res.data.id,
-                      status:"1",
+                      status: "1",
                       token: app.globalData.token
                     },
                     success(res) {
@@ -119,7 +171,7 @@ Page({
                       })
                     }
                   })
-                  
+
                 }
                 else {
                   that.setData({
@@ -165,7 +217,7 @@ Page({
       success: res => {
         this.setData(
           {
-            windowHeight:res.windowHeight*res.pixelRatio
+            windowHeight: res.windowHeight * res.pixelRatio
           }
         )
       }

@@ -11,6 +11,10 @@ Component({
     content: {
       type: String,
       value: "内容"
+    },
+    hidden:{
+      type:String,
+      value:""
     }
   },
   /**
@@ -24,9 +28,8 @@ Component({
    */
   methods: {
     agree: function () {
-      this.setData({
-        agreed: true
-      })
+
+      this.triggerEvent('agree')
     }
 
   }
