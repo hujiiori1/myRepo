@@ -9,8 +9,8 @@ Page({
   data: {
     carousel: [],
     newslist: [],
-    page: 1,
-    count: 10
+    page: 0,
+    count: 5
   },
 
   /**
@@ -119,7 +119,31 @@ Page({
    * Called when page reach bottom
    */
   onReachBottom: function () {
-
+    var that = this;
+    // 显示加载图标
+    wx.showLoading({
+      title: '加载中',
+    })
+    // 页数+1
+    this.setData({
+      page: this.data.page + 1
+    })
+    wx.request({
+      url: urlList.GetNewsListUrl,
+      data: {
+        count: this.data.count,
+        page: this.data.page,
+        token: app.globalData.token
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          newslist: that.data.newslist.concat(res.data.list)
+        })
+        // 隐藏加载框
+        wx.hideLoading();
+      }
+    })
   },
 
   /**

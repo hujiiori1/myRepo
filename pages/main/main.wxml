@@ -22,7 +22,7 @@
       <image class="img_module " src="../../imgs/main/alarm.png "></image>
 
     </view>
-    <view class="module " bindtap="toHelp">
+    <view class="module " bindtap="toHelp" style="border-right:0">
       <view class="module_content ">
         <view class="module_title ">社会联动</view>
         <view class="module_desc ">一键连线</view>
@@ -38,7 +38,7 @@
       <image class="img_module " src="../../imgs/main/map.png "></image>
 
     </view>
-    <view class="module " bindtap="toBusiness">
+    <view class="module " bindtap="toBusiness" style="border-right:0">
       <view class="module_content ">
         <view class="module_title ">警务大厅</view>
         <view class="module_desc ">更多便民服务</view>
@@ -52,12 +52,10 @@
     <view class="block" style="background-color:orange "></view>
     <view class="more_text ">最新新闻</view>
   </view>
-  <view class="news_list">
-    <block wx:for="{{newslist}}" wx:for-item="news" wx:key="news">
-      <view class="news" bindtap='toNewsDetail' data-link="{{news.detailUrl}} ">
-        <view class="news_title ">{{news.TITLE}}</view>
-        <view class="news_img ">{{news.ATTACHMENT}}</view>
-      </view>
-    </block>
-  </view>
+  <scroll-view class="news_list">
+    <view class="news" bindtap='toNewsDetail' data-link="{{news.detailUrl}}" wx:for="{{newslist}}" wx:for-item="news" wx:key="news">
+      <view class="news_title">{{news.TITLE}}</view>
+      <image class="news_img" src="{{news.THUMB_URL}}"></image>
+    </view>
+  </scroll-view>
 </view>
