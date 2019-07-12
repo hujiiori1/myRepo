@@ -55,6 +55,11 @@ Page({
       }
     })
   },
+  toNews: function (e) {
+    wx.navigateTo({
+      url: '../news/news'
+    })
+  },
   toNewsDetail: function (e) {
     wx.navigateTo({
       url: '../webLink/webLink?link=' + encodeURIComponent(e.currentTarget.dataset.link),
@@ -118,6 +123,7 @@ Page({
   /**
    * Called when page reach bottom
    */
+  /*
   onReachBottom: function () {
     var that = this;
     // 显示加载图标
@@ -145,7 +151,7 @@ Page({
       }
     })
   },
-
+*/
   /**
    * Called when user click on the top right corner to share
    */

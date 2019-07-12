@@ -8,7 +8,7 @@
     <view class="userinfo" style="padding:100rpx 0 0 0">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
+        <image bindtap="" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
         <text class="userinfo-nickname">{{wxUserInfo.nickName}}</text>
       </block>
     </view>

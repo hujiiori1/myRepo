@@ -49,6 +49,12 @@ Page({
       })
     }
   },
+  /**
+ * Lifecycle function--Called when page show
+ */
+  onShow: function () {
+    this.bindViewTap()
+  },
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.wxUserInfo = e.detail.userInfo

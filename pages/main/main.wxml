@@ -48,9 +48,10 @@
     </view>
   </view>
   <view style="width:100vw;height:30rpx;background-color:#eeeeee "></view>
-  <view class="more" style="  border-bottom: 1rpx solid #bbbbbb;">
+  <view class="more" style="position:relative; border-bottom: 1rpx solid #bbbbbb;">
     <view class="block" style="background-color:orange "></view>
     <view class="more_text ">最新新闻</view>
+    <view class="more_text" bindtap='toNews' style="position: absolute;right: 25rpx;top:25rpx">更多>></view>
   </view>
   <scroll-view class="news_list">
     <view class="news" bindtap='toNewsDetail' data-link="{{news.detailUrl}}" wx:for="{{newslist}}" wx:for-item="news" wx:key="news">

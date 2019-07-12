@@ -1,0 +1,15 @@
+<!--pages/main/main.wxml-->
+<view class="container1">
+<navbar title="新闻"></navbar>
+  <view style="width:100vw;height:30rpx;background-color:#eeeeee "></view>
+  <view class="more" style="position:relative; border-bottom: 1rpx solid #bbbbbb;">
+    <view class="block" style="background-color:orange "></view>
+    <view class="more_text ">最新新闻</view>
+  </view>
+  <scroll-view class="news_list">
+    <view class="news" bindtap='toNewsDetail' data-link="{{news.detailUrl}}" wx:for="{{newslist}}" wx:for-item="news" wx:key="news">
+      <view class="news_title">{{news.TITLE}}</view>
+      <image class="news_img" src="{{news.THUMB_URL}}"></image>
+    </view>
+  </scroll-view>
+</view>

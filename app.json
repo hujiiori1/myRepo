@@ -18,7 +18,8 @@
     "pages/main/main",
     "pages/webLink/webLink",
     "pages/map/map",
-    "pages/business/business"
+    "pages/business/business",
+    "pages/news/news"
   ],
   "permission": {
     "scope.userLocation": {

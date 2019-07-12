@@ -1,5 +1,5 @@
 <view class="page">
-<navbar title="登录" ></navbar>
+<navbar title="操作失败" ></navbar>
   <view class="weui-msg">
     <view class="weui-msg__icon-area">
       <icon type="warn" size="93"></icon>

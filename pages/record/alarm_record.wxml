@@ -1,5 +1,5 @@
 <view class="container1">
-<navbar title="求助服务"></navbar>
+<navbar title="视频连线记录"></navbar>
   <view class="">
     <view class="weui-panel__hd" wx:for="{{alarmRecords}}" wx:for-item="record" wx:key="record">
       <image class="location_img" src="../../imgs/mine/time.png"></image>

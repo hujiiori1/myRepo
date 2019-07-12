@@ -1,2 +1,4 @@
-<!--pages/business/business.wxml-->
-<text>pages/business/business.wxml</text>
+<view class="container">
+  <navbar title="警务大厅" hideBack="true"></navbar>
+<text>正在建设中</text>
+</view>

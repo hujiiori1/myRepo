@@ -1,5 +1,5 @@
 <view class="page">
-  <navbar title="求助服务"></navbar>
+  <navbar title="举报记录"></navbar>
   <view class="page__bd">
     <view class="weui-tab">
       <view class="weui-navbar">
