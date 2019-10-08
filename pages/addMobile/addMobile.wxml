@@ -1,8 +1,7 @@
 <view class="container">
-  <navbar title="手机号注册" hideHome="true"></navbar>
+  <navbar title="绑定手机号" hideHome="true"></navbar>
   <view class="view_inside">
-    <image class="image_police" src="../../imgs/login/police.png"></image>
-    <image class="image_110" src="../../imgs/verify/110.png"></image>
+    <image class="image_logo" src="../../imgs/login/logo.png"></image>
     <view class="weui-cells weui-cells_after-title" style="margin-top:50rpx">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">

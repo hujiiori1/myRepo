@@ -5,3 +5,33 @@
   height: 71rpx;
   padding:60rpx 0;
 }
+.image_logo {
+    width: 291rpx;
+    height: 320rpx;
+    margin: 100rpx 0 0
+}
+
+.mobile_img
+{
+  height: 60rpx;
+  width: 60rpx;
+  padding: 10rpx 15rpx 0 0
+}
+.sendcode_img
+{
+  width: 140rpx;
+  height: 59rpx;
+}
+.sendcode_button
+{
+  width: 180rpx;
+  height: 59rpx;
+  font-size:12px;
+}
+
+.verify_img
+{
+  width: 602rpx;
+  height: 71rpx;
+  padding:60rpx 0;
+}

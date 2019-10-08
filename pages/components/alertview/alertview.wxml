@@ -3,9 +3,16 @@
   <view class='alert-view'>
     <image class="police_icon_img" src="../../../imgs/video/poppolice.png"></image>
     <view class="wuxi_110_text">无锡公安</view>
-    <view class="title_text">{{title}}</view>
-    <text decode='true' class="title_content">{{content}}</text>
+    <view class="title_text">{{alertTitle[type-1]}}</view>
+    <scroll-view class="scroll_content" scroll-y="true"  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+      <text decode='true'>{{alertContent[type-1]}}</text>
+      </scroll-view >
     <view class="divLine"></view>
-    <view class="agree_text" bindtap="agree">同意须知条款</view>
+    <view class="agree_module">
+     <view class="agree_text" bindtap="agree">同意须知条款</view>
+     <view class="agree_splitter" ></view>
+     <view class="agree_text" bindtap="disAgree">不同意</view>
+    </view>
+   
   </view>
 </view>

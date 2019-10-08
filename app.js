@@ -23,29 +23,51 @@ App({
             'content-type': 'application/json' // 默认值
           },
           success(res) {
-            console.log(res);
-            if (res.data.code = 200) {
+            if (res.data.code == 200) {
+              
               that.globalData.userInfo = {
                 userid: res.data.USER_ID,
                 mobile: res.data.MOBILE_NO,
-                isAuthenticated: res.data.ID_NO != '' && res.data.ID_NO != 'null',
+                isAuthenticated: res.data.MOBILE_NO != '' && res.data.MOBILE_NO != 'null' &&
+                res.data.ID_NO != '' && res.data.ID_NO != 'null',
                 idName: res.data.ID_NAME,
                 idNo: res.data.ID_NO,
                 usersig: res.data.usersig
               };
               that.globalData.token = res.data.token;
               that.globalData.sdkappid = res.data.sdkappid;
+              that.globalData.showTestAlert=res.data.showTestAlert;
               //that.globalData.userInfo.isAuthenticated = false;//
               //that.globalData.userInfo.mobile = '';
             } else {
-
+              wx.showToast({
+                title: '用户登录失败',
+                icon: 'none',
+                duration: 2000
+              });
             }
+          },
+          fail(res){
+            wx.showToast({
+              title: '用户登录失败',
+              icon: 'none',
+              duration: 2000
+            });
+          },
+          complete(res){
+            console.log(res);
           }
         })
-
-
+      },
+      fail:res=>{
+        wx.showToast({
+          title: '微信登录失败',
+          icon: 'none',
+          duration: 2000
+        });
       }
-    })
+    }
+    )
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -71,6 +93,7 @@ App({
     wxUserInfo: null,
     userInfo: [],
     token: null,
-    sdkappid: null
+    sdkappid: null,
+    showTestAlert:null
   }
 })

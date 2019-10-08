@@ -19,7 +19,8 @@
     "pages/webLink/webLink",
     "pages/map/map",
     "pages/business/business",
-    "pages/news/news"
+    "pages/news/news",
+    "pages/videoConnect/videoConnect"
   ],
   "permission": {
     "scope.userLocation": {

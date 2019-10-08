@@ -1,0 +1,6 @@
+<view class="container" style="align-items:center;justify-content: center">
+  <text class="title_text">正在请求视频通话...</text>
+  <text class="queue_text" wx:if="{{connectionStatus=='1'}}">您前面还有{{queue}}位在排队</text>
+  <image class="image_button" mode='scaleToFill' src="../../imgs/video/off.png" bindtap='CancelConnect'></image>
+
+</view>

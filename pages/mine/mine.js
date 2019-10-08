@@ -12,17 +12,14 @@ Page({
 
   toVerify: function () {
     wx.navigateTo({
-      url: '../verify/verify?canSkip=false',
+      url: '../verify/verify?canSkip=false&action=0',
     })
   },
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.setData({
-      userInfo: app.globalData.userInfo,
-      wxUserInfo: app.globalData.wxUserInfo,
-    })
+
   },
 
   /**
@@ -36,7 +33,11 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    this.setData({
+      userInfo: app.globalData.userInfo,
+      wxUserInfo: app.globalData.wxUserInfo,
+    })
+    console.log(this.data.userInfo.isAuthenticated)
   },
 
   /**

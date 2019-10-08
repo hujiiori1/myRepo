@@ -1,4 +1,1 @@
-<view class="container">
-  <navbar title="警务大厅" hideBack="true"></navbar>
-<text>正在建设中</text>
-</view>
+<web-view src="https://ga.wuxi.gov.cn/wx/qdefault.php?mod=c&s=ss5595175&wx_login=1" bindmessage="getMessage"></web-view>

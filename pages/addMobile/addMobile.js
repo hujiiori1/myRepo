@@ -71,7 +71,11 @@ Page({
         if (res.data.code == 200) {
           app.globalData.userInfo.mobile = that.data.mobile;
         } else {
-
+          wx.showToast({
+            title: '手机验证失败',
+            icon: 'none',
+            duration: 2000
+          });
         }
       }
     }
@@ -126,7 +130,11 @@ Page({
             }
           }, 1000)
         } else {
-
+          wx.showToast({
+            title: '请求验证码失败',
+            icon: 'none',
+            duration: 2000
+          });
         }
       }
     }
@@ -136,9 +144,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '手机号验证',
-    })
   },
 
   /**

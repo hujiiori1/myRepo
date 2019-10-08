@@ -1,9 +1,14 @@
 <!--pages/help/help.wxml-->
-<view class="container1">
-<navbar title="社会联动" hideBack="true"></navbar>
-  <view class="item" wx:for="{{addresslist}}" wx:for-item="item" wx:key="item" data-link="{{item.URL}}" bindtap="toAddressPage">
-    <image class="content_image" mode="widthFix" src="{{item.ICON}}"  ></image>
-    <view class="text">{{item.NAME}}</view>
-    <image class="go_image"  src="../../imgs/help/go.png" ></image>
+<view class="container2">
+  <view class="container1">
+    <navbar title="社会联动" hideBack="true"></navbar>
+    <view class="item" wx:for="{{addresslist}}" wx:for-item="item" wx:key="item" data-link="{{item.URL}}" bindtap="toAddressPage">
+      <image class="content_image" mode="widthFix" src="{{item.ICON}}"></image>
+      <view class="text">{{item.NAME}}</view>
+    </view>
+  </view>
+  <view class="remind_text">
+  <!--<text decode='true'>&emsp;&emsp;为及时有效处置人民群众在生产生活中遇到的各类急、难、险、重事件的报警求助，公安机关联合主要政府部门、企事业单位开展110社会求助联动工作，按照“谁主管、谁负责、谁专业、谁响应”的原则，全力处置人民群众各类紧急求助，充分发挥110社会求助联动更精准、更高效的专业智能作用。
+    </text>-->
   </view>
 </view>

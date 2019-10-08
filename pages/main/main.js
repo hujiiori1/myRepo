@@ -33,6 +33,13 @@ Page({
             carousel: res.data.list
           })
         }
+        else {
+          wx.showToast({
+            title: '获取轮播图失败',
+            icon: 'none',
+            duration: 2000
+          });
+        }
       }
     })
     wx.request({
@@ -51,6 +58,13 @@ Page({
           that.setData({
             newslist: res.data.list
           })
+        }
+        else {
+          wx.showToast({
+            title: '获取新闻列表失败',
+            icon: 'none',
+            duration: 2000
+          });
         }
       }
     })
@@ -96,7 +110,16 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    if (app.globalData.showTestAlert!="false") {
+      wx.showModal({
+        title: '',
+        showCancel: false,
+        content: '无锡110目前正在测试中，不受理相关受理业务',
+        confirmText: "确定",
+        success: function (res) {
+        }
+      })
+    }
   },
 
   /**

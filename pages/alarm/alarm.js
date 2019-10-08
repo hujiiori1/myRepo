@@ -1,49 +1,63 @@
 // pages/alarm/alarm.js
 const urlList = require('../../config.js');
 const app = getApp();
+var QQMapWX = require('../../qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    alertType: 1,
     showAlert: false,
-    alertAgreed:false,
+    alertAgreed: false,
     //0-未连接 1-连接中 
-    connectionStatus: 0,
     windowHeight: 0,
-    timer: null,
-    queue: 0,
-    action: 0
+    action: 0,
+
+    province: '',
+    city: '',
+    address: '',
+    latitude: '',
+    longitude: ''
   },
   openNotification: function () {
 
   },
-  showAlert: function () {
-    if(this.data.alertAgreed==false)
-    {
+  doShowAlert: function () {
+    if (this.data.alertAgreed == false) {
       this.setData({
         showAlert: true
       })
       return true
     }
-    else{
+    else {
       return false
     }
   },
   agree: function () {
     this.setData({
       showAlert: false,
-      alertAgreed:true
+      alertAgreed: true
     })
-    if(this.data.action==1){
+
+    if (this.data.action == 1) {
       this.GoToReport()
     }
-    if (this.data.action == 2) {
-      this.RequestConnect()
+    else if (this.data.action == 2) {
+      this.GoToVideo()
     }
+
+  },
+  disAgree: function () {
+    this.setData({
+      showAlert: false,
+      alertAgreed: false
+    })
   },
   toVerify: function () {
+    var that=this
     wx.showModal({
       title: '',
       content: '该业务需要实名认证',
@@ -53,7 +67,7 @@ Page({
         console.log(res);
         if (res.confirm) {
           wx.navigateTo({
-            url: '../verify/verify?canSkip=false',
+            url: '../verify/verify?canSkip=false&action=' + that.data.action
           })
         } else {
         }
@@ -69,144 +83,101 @@ Page({
   },
   //事件处理函数
   GoToReport: function () {
-    if(this.data.showAlert===true){
+    if (this.data.showAlert == true) {
       return;
     }
-    if (this.data.alertAgreed==false) {
-      this.showAlert()
-      this.setData({
-        action: 1
+    else if (this.data.city != "无锡市") {
+      wx.showModal({
+        title: '',
+        showCancel: false,
+        content: '违法举报和视频连线仅能在无锡地区使用',
+        confirmText: "确定",
+        success: function (res) {
+        }
       })
       return;
     }
 
+    if (this.data.alertAgreed == false) {
+      this.doShowAlert()
+      this.setData({
+        alertType: 1,
+        action: 1
+      })
+      return;
+    }
+    this.setData({
+      alertAgreed: false
+    })
     if (app.globalData.userInfo.isAuthenticated) {
       wx.navigateTo({
-        url: '../report/report',
+        url: '../report/report?address=' + this.data.address +
+          '&longitude=' + this.data.longitude +
+          '&latitude=' + this.data.latitude
       })
     }
     else {
       this.toVerify()
     }
   },
-  RequestConnect: function () {
-    if (this.data.showAlert === true) {
+  GoToVideo: function () {
+    if (this.data.showAlert == true) {
+      return;
+    }
+    else if (this.data.city != "无锡市") {
+      wx.showModal({
+        title: '',
+        showCancel: false,
+        content: '违法举报和视频连线仅能在无锡地区使用',
+        confirmText: "确定",
+        success: function (res) {
+        }
+      })
       return;
     }
     if (this.data.alertAgreed == false) {
-      this.showAlert()
+      this.doShowAlert()
       this.setData({
+        alertType: 2,
         action: 2
       })
       return;
     }
-    if (this.data.connectionStatus == 1) {
-      wx.showToast({
-        title: '已取消等待',
-      })
-      if (this.data.timer != null) {
-        clearInterval(this.data.timer)
-      }
-      this.setData({
-        connectionStatus: 0
-      })
-      return
-    }
-
-    if (!app.globalData.userInfo.isAuthenticated) {
-      this.toVerify()
-      return
-    }
-    //this.showReminder()
     this.setData({
-      connectionStatus: 1
+      alertAgreed: false
     })
     var that = this
-    //$$发起连接请求
-    wx.request({
-      url: urlList.createConnectionUrl,
-      data: {
-        token: app.globalData.token
-      },
-      success(res) {
-        console.log(res);
-        if (res.data.code == 200 || res.data.code == 300) {
-          wx.showToast({
-            title: '请求视频成功',
-          })
-          that.setData({
-            queue: res.data.queue
-          })
-          that.data.timer = setInterval(function () {
-            wx.request({
-              url: urlList.getConnectionRoomUrl,
-              data: {
-                id: res.data.id,
-                token: app.globalData.token
-              },
-              success(res) {
-                console.log(res);
-                if (res.data.code == 200) {
-                  var roomID = res.data.room
-                  clearInterval(that.data.timer)
-                  that.setData({
-                    connectionStatus: 0
-                  })
-                  //记录接入时间
-                  wx.request({
-                    url: urlList.changeStatusAlarmUrl,
-                    data: {
-                      id: res.data.id,
-                      status: "1",
-                      token: app.globalData.token
-                    },
-                    success(res) {
-                      console.log(res);
-                      //调用音视频连接
-                      wx.navigateTo({
-                        url: "../webrtc-room/room/room?roomID=" + roomID
-                          + "&userId=" + app.globalData.userInfo.userid
-                          + "&userSig=" + app.globalData.userInfo.usersig
-                          + "&template=float",
-                      })
-                    }
-                  })
-
-                }
-                else {
-                  that.setData({
-                    queue: res.data.queue
-                  })
-                  //稍后再试
-
-                }
-              }
+    if (app.globalData.userInfo.isAuthenticated) {
+      wx.showModal({
+        title: '',
+        content: '警方在需要了解现场情况时，会联系你，请注意接通。有急难险等危害人身、财产公共安全时请直接拨打110',
+        confirmText: "继续连线",
+        cancelText: "取消",
+        success: function (res) {
+          console.log(res);
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '../videoConnect/videoConnect?address=' + that.data.address +
+                '&longitude=' + that.data.longitude +
+                '&latitude=' + that.data.latitude
             })
-          }, 5000);
-        } else {
-          wx.showToast({
-            title: '请求连接失败',
-          })
-          that.setData({
-            connectionStatus: 0
-          })
+          } else {
+          }
         }
-      },
-      fail(res) {
-        wx.showToast({
-          title: '请求连接失败',
-        })
-        this.setData({
-          connectionStatus: 0
-        })
-      }
-    })
+      })
+    }
+    else {
+      this.toVerify()
+    }
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    qqmapsdk = new QQMapWX({
+      key: 'ETCBZ-5RV6X-Y764V-7JLA2-R7A43-ULFNR'
+    });
   },
 
   /**
@@ -228,21 +199,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    //wx.showModal({
-    // title: '弹窗标题',
-    //  content: '弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内，弹窗内容，告知当前状态、信息和解决方法，描述文字尽量控制在三行内',
-    //   confirmText: "同意",
-    //  showCancel: false,
-    //   success: function (res) {
-    //    console.log(res);
-    //    if (res.confirm) {
-    //     console.log('用户点击主操作')
-    //   } else {
-    //     console.log('用户点击辅助操作')
-    //    }
-    // }
-    //});
-
+    this.getLocation();
   },
 
   /**
@@ -279,6 +236,51 @@ Page({
   onShareAppMessage: function () {
 
   },
+  getLocation: function () {
+    let vm = this;
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        console.log(JSON.stringify(res))
+        var latitude = res.latitude
+        var longitude = res.longitude
+        var speed = res.speed
+        var accuracy = res.accuracy;
+        vm.getLocal(latitude, longitude)
+      },
+      fail: function (res) {
+        console.log('fail' + JSON.stringify(res))
+      }
+    })
+  },
+  // 获取当前地理位置
+  getLocal: function (latitude, longitude) {
+    let vm = this;
+    qqmapsdk.reverseGeocoder({
+      location: {
+        latitude: latitude,
+        longitude: longitude
+      },
+      success: function (res) {
+        console.log(JSON.stringify(res));
+        let province = res.result.ad_info.province
+        let city = res.result.ad_info.city
+        vm.setData({
+          province: province,
+          city: city,
+          latitude: latitude,
+          longitude: longitude,
+          address: res.result.address
+        })
 
+      },
+      fail: function (res) {
+        console.log(res);
+      },
+      complete: function (res) {
+        // console.log(res);
+      }
+    });
+  }
 })
 

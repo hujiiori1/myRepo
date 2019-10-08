@@ -1,3 +1,25 @@
 <!-- map.wxml -->
 <navbar title="在线地图" hideBack="true"></navbar>
-<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 100vh;"></map>
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindtouchstart="touchstart" bindregionchange="regionchange" show-location style="width: 100%; height: 100vh;">
+  <cover-view class="cover-view" hidden="{{selectMarkerIndex>=0?'':'hidden'}}">
+    <cover-view class="container1">
+    <cover-view class="marker_title">走失消息</cover-view>
+      <cover-view class="container2">
+        <cover-image class="marker_photo"></cover-image>
+        <cover-view class="marker_brief">
+          
+          <cover-view class="marker_brief_item">姓名:{{events[selectMarkerIndex].name}}</cover-view>
+          <cover-view class="marker_brief_item">{{events[selectMarkerIndex].sex}}</cover-view>
+          <cover-view class="marker_brief_item">{{events[selectMarkerIndex].age}}</cover-view>
+          
+        </cover-view>
+      </cover-view>
+      <cover-view class="marker_time">走失时间:{{events[selectMarkerIndex].eventTime}}</cover-view>
+      <cover-view class="marker_address">走失地址:{{events[selectMarkerIndex].locationName}}</cover-view>
+      <cover-view class="marker_description">描述：{{events[selectMarkerIndex].description}}</cover-view>
+      <cover-view class="marker_phone">电话:{{events[selectMarkerIndex].call}}</cover-view>
+      <cover-image class="marker_call" src="../../imgs/map/call.png"
+      mode="center" bindtap="takeCall"></cover-image>
+    </cover-view>
+  </cover-view>
+</map>

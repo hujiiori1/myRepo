@@ -15,6 +15,9 @@ Page({
     currentLocation: [],
     pics: [],
     video: '',
+    initAddress:'',
+    initLatitude:'',
+    initLongitude:''
   },
 
   chooseImage: function (e) {
@@ -243,8 +246,12 @@ Page({
     this.setData({
       userInfo: app.globalData.userInfo,
       reporterName: app.globalData.userInfo.idName,
-      reporterMobile: app.globalData.userInfo.mobile
+      reporterMobile: app.globalData.userInfo.mobile,
+      initAddress: options.address,
+      initLongitude: options.longitude,
+      initLatitude: options.latitude
     })
+
     wx.setNavigationBarTitle({
       title: '违法犯罪举报',
     })
@@ -255,7 +262,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+ 
   },
 
   /**

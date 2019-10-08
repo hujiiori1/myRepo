@@ -3,8 +3,8 @@
 <view class="container">
   <navbar title="登录" hidden="true" hideHome="true" hideBack="true"></navbar>
   <view class="view_inside">
-    <image class="image_police" src="../../imgs/login/police.png"></image>
-    <image class="image_110" src="../../imgs/login/110.png"></image>
+    <image class="image_logo" src="../../imgs/login/logo.png"></image>
+    <!--<image class="image_110" src="../../imgs/login/110.png"></image>-->
     <view class="userinfo" style="padding:100rpx 0 0 0">
       <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <block wx:else>

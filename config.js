@@ -14,6 +14,7 @@ const urlList = {
   changeStatusAlarmUrl: basePath + 'Alarmcall/change_status',
   GetNewscarouselUrl: basePath + 'News/get_carousel',
   GetNewsListUrl: basePath + 'News/get_list',
-  GetAddressListUrl: basePath + 'Address/get_list'
+  GetAddressListUrl: basePath + 'Address/get_list',
+  GetMapAllData: basePath +'Location/get_all_data'
 }
 module.exports = urlList;

@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 
 Page({
   data: {
@@ -11,15 +11,15 @@ Page({
   },
   //事件处理函数
   bindViewTap: function () {
-    if (app.globalData.userInfo.mobile == "") {
-      wx.navigateTo({
-        url: '../addMobile/addMobile'
-      });
-    } else {
+ //   if (app.globalData.userInfo.mobile == "") {
+ //     wx.navigateTo({
+ //       url: '../addMobile/addMobile'
+  //    });
+ //   } else {
       wx.navigateTo({
         url: '../main/main'
       });
-    }
+   // }
   },
   onLoad: function () {
     if (app.globalData.wxUserInfo) {
@@ -53,7 +53,13 @@ Page({
  * Lifecycle function--Called when page show
  */
   onShow: function () {
-    this.bindViewTap()
+    var that = this;
+    var timer = setInterval(function () {
+      if (typeof(app.globalData.userInfo.userid) !="undefined" ) {
+        clearInterval(timer);
+        that.bindViewTap(); 
+      }
+    }, 500);
   },
   getUserInfo: function (e) {
     console.log(e)

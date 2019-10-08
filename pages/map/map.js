@@ -1,44 +1,10 @@
+const urlList = require('../../config.js');
+const app = getApp();
 Page({
   data: {
-    markers: [{
-      iconPath: "../../imgs/map/lost_marker.png",
-      id: 0,
-      latitude: 31.53055,
-      longitude: 120.40434,
-      width: 33,
-      height: 43
-    },
-    {
-      iconPath: "../../imgs/map/lost_marker.png",
-      id: 1,
-      latitude: 31.56055,
-      longitude: 120.38434,
-      width: 33,
-      height: 43
-    }],
-    polyline: [{
-      points: [{
-        longitude: 113.3245211,
-        latitude: 23.10229
-      }, {
-        longitude: 113.324520,
-        latitude: 23.21229
-      }],
-      color: "#FF0000DD",
-      width: 2,
-      dottedLine: true
-    }],
-    controls: [{
-      id: 1,
-      iconPath: '/resources/location.png',
-      position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
-      },
-      clickable: true
-    }]
+    events: [],
+    markers: [],
+    selectMarkerIndex: -1
   },
   onLoad: function (options) {
     var self = this
@@ -46,23 +12,74 @@ Page({
       type: 'wgs84',
       success(res) {
         self.setData({
-          latitude: res.latitude,
-          longitude: res.longitude
+           latitude: res.latitude,
+           longitude: res.longitude
+         // latitude: "31.710000",
+         // longitude: "120.520000"
         })
         const speed = res.speed
         const accuracy = res.accuracy
+        wx.request({
+          url: urlList.GetMapAllData,
+          data: {
+            token: app.globalData.token,
+            lng: self.data.longitude,
+            lat: self.data.latitude,
+            zoom: 1
+          },
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success(res) {
+            console.log(res);
+            if (res.data.code == 200) {
+              self.setData({
+                events: res.data.event
+              })
+              var markers = [];
+              for (var i = 0; i < res.data.event.length; i++) {
+                markers.push({
+                  id: res.data.event[i].eventId, iconPath: "../../imgs/map/lost_marker.png",
+                  latitude: res.data.event[i].lat, longitude: res.data.event[i].lng,
+                  width: 33, height: 43
+                })
+                self.setData({
+                  markers: markers
+                })
+              }
+            }
+          }
+        })
       }
     })
-
   },
   regionchange(e) {
     console.log(e.type)
   },
   markertap(e) {
     console.log(e.markerId)
+    for (var i = 0; i < this.data.markers.length; i++) {
+      if (this.data.markers[i].id == e.markerId) {
+        this.setData({
+          selectMarkerIndex: i
+        })
+      }
+    }
   },
   controltap(e) {
     console.log(e.controlId)
+  },
+  takeCall: function () {
+    wx.makePhoneCall({
+      phoneNumber: this.data.events[this.data.selectMarkerIndex].call
+    })
+  },
+  touchstart: function () {
+    if (this.data.selectMarkerIndex != -1) {
+      this.setData({
+        selectMarkerIndex: -1
+      })
+    }
   }
 
 })

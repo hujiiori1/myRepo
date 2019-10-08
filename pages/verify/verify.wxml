@@ -1,11 +1,9 @@
-
 <view class="container">
-<navbar title="实名认证" hideHome="true"></navbar>
+  <navbar title="实名认证" hideHome="true"></navbar>
   <!--<image class="image_bg" mode='widthFix' src="../../imgs/登录页/bg.jpg">
   </image>-->
   <view class="view_inside">
-  <image class="image_police" src="../../imgs/login/police.png"></image>
-    <image class="image_110" src="../../imgs/verify/110.png"></image>
+    <image class="image_logo" src="../../imgs/login/logo.png"></image>
     <view class="weui-cells weui-cells_after-title" style="margin-top:50rpx">
       <view class="weui-cell weui-cell_input">
         <view class="weui-cell__hd">
@@ -21,6 +19,27 @@
         </view>
         <view class="weui-cell__bd">
           <input class="weui-input" bindinput='idNoInput' placeholder="身份证号码" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <image class="mobile_img" src="../../imgs/login/mobileno.png"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindinput='mobileInput' placeholder="手机号" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <image class="mobile_img" src="../../imgs/login/code.png"></image>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" bindinput='codeInput' placeholder="验证码" />
+        </view>
+        <view class="weui-cell__ft">
+          <!--
+          <image bindtap="sendCode" class="sendcode_img" src="../../imgs/login/sendcode.png"></image>-->
+          <button bindtap="sendCode" class="sendcode_button" disabled="{{sendStatus==1?'true':''}}">{{sendStatus==0?'发送验证码':'等待'+second+'秒'}}</button>
         </view>
       </view>
     </view>

@@ -1,8 +1,8 @@
 
 .image_button{
-  width: 373rpx;
-  height: 113rpx;
-  margin:100rpx 0 0 0;
+  width: 413rpx;
+  height: 82rpx;
+  margin:50rpx 0 0 0;
 }
 
 .image_110 {
@@ -17,12 +17,12 @@
     height: 331rpx;
     margin: 100rpx 0 0
 }
-.image_logo {
-    width: 291rpx;
-    height: 320rpx;
-    margin: 100rpx 0 0
-}
 .queue_text{
   font-size: 14px;
+  color: #ddd;
+  padding-top: 10rpx;
+}
+.title_text{
+  font-size: 25px;
   color: #ddd
 }

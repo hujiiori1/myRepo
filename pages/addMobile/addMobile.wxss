@@ -24,3 +24,8 @@
   height: 71rpx;
   padding:60rpx 0;
 }
+.image_logo {
+    width: 291rpx;
+    height: 320rpx;
+    margin: 100rpx 0 0
+}

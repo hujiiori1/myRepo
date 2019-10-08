@@ -1,13 +1,18 @@
 /* pages/help/help.wxss */
 .container1 {
-  height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-content: flex-start;
   justify-content: flex-start;
   box-sizing: border-box;
   flex-wrap: wrap;
   background-color: #eeeeee
+} 
+.container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-start;
 } 
 
 .content_image{
@@ -16,18 +21,24 @@
   
 }
 .item{
-  width:100vw;
-  height:150rpx;
+  width:32%;
   background-color:white;
   margin: 5rpx;
-  padding: 30rpx 30rpx 0 30rpx;
   display: flex;
-  flex-direction: row;
-  position: relative;
+  flex-direction: column;
+  align-items: center;
+  padding:20rpx 0 20rpx 0;
 }
 .text{
   font-size:16px;
-  padding: 30rpx 0 0 30rpx;
+  padding: 10rpx 0 0 10rpx;
+}
+.remind_text{
+  font-size:15px;
+  text-indent: 10rpx;
+  padding: 30rpx;
+  background-color:skyblue;
+  line-height: 45rpx;
 }
 .go_image{
   position: fixed;
