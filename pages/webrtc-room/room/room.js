@@ -13,7 +13,7 @@ Page({
   data: {
     template: 'float',
     webrtcroomComponent: null,
-    roomID: '100', // 房间id
+    roomID: '', // 房间id
     beauty: 0,
     muted: false,
     debug: false,
@@ -21,7 +21,7 @@ Page({
     role: ROLE_TYPE.PRESENTER, // presenter 代表主播，audience 代表观众
     userId: '',
     userSig: '',
-    sdkAppID: '',//account.sdkappid,
+    sdkAppID: 0,
     isErrorModalShow: false,
     autoplay: true,
     enableCamera: true,
@@ -129,7 +129,7 @@ Page({
     var pages = getCurrentPages();
     if (pages.length > 1 && (pages[pages.length - 1].__route__ == 'pages/webrtc-room/room/room')) {
       wx.navigateBack({
-        delta: 1
+        delta: 2
       });
     }
   },
@@ -139,11 +139,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.data.sdkAppID = app.globalData.sdkappid;
     this.data.roomID = options.roomID || '';
     this.data.userId = options.userId;
     this.data.userSig = options.userSig;
     this.data.template = options.template;
+    this.data.sdkAppID = app.globalData.sdkappid;
 
     this.data.webrtcroomComponent = this.selectComponent('#webrtcroom');
 
@@ -220,7 +220,7 @@ Page({
 
   onBack: function () {
     wx.navigateBack({
-      delta: 1
+      delta: 2
     });
   },
 })

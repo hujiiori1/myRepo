@@ -10,7 +10,7 @@ Page({
     canSkip: true,
     idName: '',
     idNo: '',
-    previousAction:0,
+    previousAction: 0,
 
     mobile: '',
     smsCode: '',
@@ -73,6 +73,8 @@ Page({
       data: {
         idname: this.data.idName,
         idno: this.data.idNo,
+        mobile: that.data.mobile,
+        code: that.data.smsCode,
         token: app.globalData.token
       },
       header: {
@@ -83,44 +85,20 @@ Page({
         if (res.data.code == 200) {
           app.globalData.userInfo.idName = that.data.idName
           app.globalData.userInfo.idNo = that.data.idNo
-
-          //$$接口判断验证码是否正确
-          wx.request({
-            url: urlList.checkSmsCodeUrl,
-            data: {
-              mobile: that.data.mobile,
-              code: that.data.smsCode,
-              token: app.globalData.token
-            },
-            header: {
-              'content-type': 'application/json' // 默认值
-            },
-            success(res) {
-              console.log(res);
-              if (res.data.code == 200) {
-                app.globalData.userInfo.mobile = that.data.mobile;
-                app.globalData.userInfo.isAuthenticated = true;
-                wx.showToast({
-                  title: '认证成功',
-                  icon: 'none',
-                  duration: 1000
-                });
-                setTimeout(function(){
-                  wx.navigateBack({
-                  })
-                },1000)
-                              } else {
-                wx.showToast({
-                  title: '手机验证失败',
-                  icon: 'none',
-                  duration: 2000
-                });
-              }
-            }
-          })
+          app.globalData.userInfo.mobile = that.data.mobile;
+          app.globalData.userInfo.isAuthenticated = true;
+          wx.showToast({
+            title: '认证成功',
+            icon: 'none',
+            duration: 1000
+          });
+          setTimeout(function () {
+            wx.navigateBack({
+            })
+          }, 1000)
         } else {
           wx.showToast({
-            title: '实名认证失败',
+            title: '认证失败',
             icon: 'none',
             duration: 2000
           });

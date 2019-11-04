@@ -41,6 +41,8 @@ Page({
       }
     })
   },
+  toDetail: function (e) {
+  },
   tabClick: function (e) {
     this.setData({
       sliderOffset: e.currentTarget.offsetLeft,
@@ -54,6 +56,11 @@ Page({
     else if (e.currentTarget.id == '2') {
       this.setData({
         status: '0'
+      })
+    }
+    else if (e.currentTarget.id == '0') {
+      this.setData({
+        status: ''
       })
     }
     var that = this
@@ -89,7 +96,7 @@ Page({
       url: urlList.getReportListUrl,
       data: {
         count: this.data.count,
-        page: this.page,
+        page: this.data.page,
         status: this.data.status,
         token: app.globalData.token
       },

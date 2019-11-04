@@ -8,7 +8,7 @@ Page({
    */
   data: {
     alarmRecords: [],
-    page: 1,
+    page: 0,
     count:10
   },
 
@@ -31,7 +31,7 @@ Page({
         console.log(res);
         if (res.data.code == 200) {
           that.setData({
-            alarmRecords:res.data
+            alarmRecords:res.data.list
           })
         } else {
 
@@ -87,5 +87,34 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  onReachBottom: function () {
+    var that = this;
+    // 显示加载图标
+    wx.showLoading({
+      title: '加载中',
+    })
+    // 页数+1
+    this.setData({
+      page: this.data.page + 1
+    })
+
+    wx.request({
+      url: urlList.getAlarmRecordsUrl,
+      data: {
+        count: this.data.count,
+        page: this.data.page,
+        status: this.data.status,
+        token: app.globalData.token
+      },
+      success: function (res) {
+        console.log(res);
+        that.setData({
+          alarmRecords: that.data.alarmRecords.concat(res.data.list)
+        })
+        // 隐藏加载框
+        wx.hideLoading();
+      }
+    })
   }
 })

@@ -7,7 +7,7 @@
     <view class="weui-msg__text-area">
       <view class="weui-msg__title">操作失败</view>
       <view class="weui-msg__desc">您的举报没有成功
-        <navigator url="" class="weui-msg__link">文字链接</navigator>
+        <!--<navigator url="" class="weui-msg__link">文字链接</navigator>-->
       </view>
     </view>
     <view class="weui-msg__opr-area">
@@ -21,7 +21,6 @@
         <view class="weui-footer__links">
           <navigator url="" class="weui-footer__link">无锡公安110</navigator>
         </view>
-        <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
       </view>
     </view>
   </view>

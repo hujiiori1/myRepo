@@ -37,6 +37,7 @@ App({
               that.globalData.token = res.data.token;
               that.globalData.sdkappid = res.data.sdkappid;
               that.globalData.showTestAlert=res.data.showTestAlert;
+              that.globalData.skipLogin=res.data.skipLogin;
               //that.globalData.userInfo.isAuthenticated = false;//
               //that.globalData.userInfo.mobile = '';
             } else {
@@ -94,6 +95,7 @@ App({
     userInfo: [],
     token: null,
     sdkappid: null,
-    showTestAlert:null
+    showTestAlert:null,
+    skipLogin:false
   }
 })

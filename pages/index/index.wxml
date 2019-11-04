@@ -6,7 +6,7 @@
     <image class="image_logo" src="../../imgs/login/logo.png"></image>
     <!--<image class="image_110" src="../../imgs/login/110.png"></image>-->
     <view class="userinfo" style="padding:100rpx 0 0 0">
-      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <button class="button_reminder" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <block wx:else>
         <image bindtap="" class="userinfo-avatar" src="{{wxUserInfo.avatarUrl}}" mode="cover"></image>
         <text class="userinfo-nickname">{{wxUserInfo.nickName}}</text>

@@ -26,7 +26,8 @@ Page({
 
   },
   RequestConnect: function () {
-
+    if (this.data.connectionStatus == 1)
+      return;
     //this.showReminder()
     this.setData({
       connectionStatus: 1
@@ -76,6 +77,7 @@ Page({
                     },
                     success(res) {
                       console.log(res);
+                      that.StopConnectAudio();
                       //调用音视频连接
                       wx.navigateTo({
                         url: "../webrtc-room/room/room?roomID=" + roomID
@@ -139,14 +141,15 @@ Page({
       initLatitude: options.latitude
     })
   },
-  playConnectAudio: function()
-  {
+  playConnectAudio: function () {
     innerAudioContext.loop = true
     innerAudioContext.src = 'https://wx110.xk-health.com/download/wxjs/rev_video.mp3'
     innerAudioContext.play()
   },
-  playOffAudio: function()
-  {
+  StopConnectAudio: function () {
+    innerAudioContext.stop()
+  },
+  playOffAudio: function () {
     innerAudioContext.loop = false
     innerAudioContext.src = 'https://wx110.xk-health.com/download/wxjs/close_video.mp3'
     innerAudioContext.play()
@@ -185,7 +188,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    this.StopConnectAudio()
   },
 
   /**

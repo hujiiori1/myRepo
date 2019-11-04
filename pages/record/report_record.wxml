@@ -13,13 +13,13 @@
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
 
-          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
+          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report" data-link="{{report.EVENT_REPORT_ID}}" bindtap="toDetail">
             <view class="weui-panel__hd">
-              <text>聚众赌博举报</text>
+              <text>举报</text>
               <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
             </view>
             <view class="weui-panel__bd">
-              <view class="weui-media-box weui-media-box_text">
+              <view class="weui-media-box weui-media-box_text" sytle="padding:0 50rpx 0 50rpx">
                 <view class="weui-media-box__title weui-media-box__title_in-text" style="font-size:13px;color:#999">违法犯罪内容</view>
                 <view class="weui-media-box__desc" style="color:#000000">{{report.CONTENT}}</view>
                 <view class="weui-media-box__info">
@@ -34,9 +34,9 @@
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
+          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report" data-link="{{report.EVENT_REPORT_ID}}" bindtap="toDetail">
             <view class="weui-panel__hd">
-              <text>聚众赌博举报</text>
+              <text>举报</text>
               <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
             </view>
             <view class="weui-panel__bd">
@@ -55,9 +55,9 @@
           </view>
         </view>
         <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report">
+          <view class="weui-panel" wx:for="{{reports}}" wx:for-item="report" wx:key="report" data-link="{{report.EVENT_REPORT_ID}}" bindtap="toDetail">
             <view class="weui-panel__hd">
-              <text>违法犯罪举报</text>
+              <text>举报</text>
               <text style="color:red;position: absolute;right:20rpx">{{report.STATUS=='0'?'未处理':'已处理'}}</text>
             </view>
             <view class="weui-panel__bd">

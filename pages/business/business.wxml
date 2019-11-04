@@ -1,1 +1,1 @@
-<web-view src="https://ga.wuxi.gov.cn/wx/qdefault.php?mod=c&s=ss5595175&wx_login=1" bindmessage="getMessage"></web-view>
+<navbar title="警务大厅" hideBack="true"></navbar>

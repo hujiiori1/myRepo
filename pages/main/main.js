@@ -110,16 +110,7 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    if (app.globalData.showTestAlert!="false") {
-      wx.showModal({
-        title: '',
-        showCancel: false,
-        content: '无锡110目前正在测试中，不受理相关受理业务',
-        confirmText: "确定",
-        success: function (res) {
-        }
-      })
-    }
+
   },
 
   /**

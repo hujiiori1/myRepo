@@ -20,7 +20,8 @@
     "pages/map/map",
     "pages/business/business",
     "pages/news/news",
-    "pages/videoConnect/videoConnect"
+    "pages/videoConnect/videoConnect",
+    "pages/record/report_record_detail"
   ],
   "permission": {
     "scope.userLocation": {

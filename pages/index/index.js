@@ -11,15 +11,15 @@ Page({
   },
   //事件处理函数
   bindViewTap: function () {
- //   if (app.globalData.userInfo.mobile == "") {
- //     wx.navigateTo({
- //       url: '../addMobile/addMobile'
-  //    });
- //   } else {
-      wx.navigateTo({
-        url: '../main/main'
-      });
-   // }
+    //   if (app.globalData.userInfo.mobile == "") {
+    //     wx.navigateTo({
+    //       url: '../addMobile/addMobile'
+    //    });
+    //   } else {
+    wx.navigateTo({
+      url: '../main/main'
+    });
+    // }
   },
   onLoad: function () {
     if (app.globalData.wxUserInfo) {
@@ -53,13 +53,24 @@ Page({
  * Lifecycle function--Called when page show
  */
   onShow: function () {
+
     var that = this;
+    console.log(app.globalData.wxUserInfo)
     var timer = setInterval(function () {
-      if (typeof(app.globalData.userInfo.userid) !="undefined" ) {
+      console.log(app.globalData.skipLogin)
+      if (app.globalData.skipLogin == true) {
         clearInterval(timer);
-        that.bindViewTap(); 
+        wx.navigateTo({
+          url: '../main/main'
+        });
+        return;
       }
-    }, 500);
+      if (typeof (app.globalData.userInfo.userid) != "undefined" &&
+        app.globalData.wxUserInfo != null) {
+        clearInterval(timer);
+        that.bindViewTap();
+      }
+    }, 1000);
   },
   getUserInfo: function (e) {
     console.log(e)

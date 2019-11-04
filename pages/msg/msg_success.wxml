@@ -5,9 +5,8 @@
       <icon type="success" size="93"></icon>
     </view>
     <view class="weui-msg__text-area">
-      <view class="weui-msg__title">举报成功</view>
-      <view class="weui-msg__desc">公安部门专员会尽快处理您的举报，请在我的-举报记录中查看处理状态
-        <navigator url="" class="weui-msg__link">文字链接</navigator>
+      <view class="weui-msg__desc">无锡110会尽快处理您的举报，请在我的-举报记录中查看
+        <!--<navigator url="" class="weui-msg__link">文字链接</navigator>-->
       </view>
     </view>
     <view class="weui-msg__opr-area">
@@ -21,7 +20,6 @@
         <view class="weui-footer__links">
           <navigator url="" class="weui-footer__link">无锡公安110</navigator>
         </view>
-        <view class="weui-footer__text">Copyright © 2008-2016 weui.io</view>
       </view>
     </view>
   </view>

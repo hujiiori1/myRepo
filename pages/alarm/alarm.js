@@ -95,7 +95,7 @@ Page({
         success: function (res) {
         }
       })
-      return;
+      //return;
     }
 
     if (this.data.alertAgreed == false) {
@@ -133,7 +133,7 @@ Page({
         success: function (res) {
         }
       })
-      return;
+     // return;
     }
     if (this.data.alertAgreed == false) {
       this.doShowAlert()
@@ -199,6 +199,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (app.globalData.showTestAlert != "false") {
+      wx.showModal({
+        title: '',
+        showCancel: false,
+        content: '无锡110目前正在测试中，不受理相关受理业务',
+        confirmText: "确定",
+        success: function (res) {
+        }
+      })
+    }
     this.getLocation();
   },
 

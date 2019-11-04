@@ -1,3 +1,4 @@
+//const basePath = 'https://wx110.xchs.com/api/';
 const basePath = 'https://wx110.xk-health.com/api/';
 const urlList = {
   //获取用户信息
@@ -8,7 +9,7 @@ const urlList = {
   uploadFileUrl: basePath + 'Eventreport/upload',
   submitReportUrl: basePath + 'Eventreport/createjs',
   getReportListUrl: basePath + 'Eventreport/get_list',
-  getAlarmRecordsUrl: basePath + 'Alarmcall/get_list',
+  getAlarmRecordsUrl: basePath + 'Alarmcall/get_request_list',
   createConnectionUrl: basePath + 'Alarmcall/create_connection',
   getConnectionRoomUrl: basePath + 'Alarmcall/get_room',
   changeStatusAlarmUrl: basePath + 'Alarmcall/change_status',

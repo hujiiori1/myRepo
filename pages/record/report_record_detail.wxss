@@ -1,0 +1,37 @@
+/* pages/report/report.wxss */
+.container1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items:  stretch;
+  justify-content: flex-start;
+  padding: 0rpx 0;
+  box-sizing: border-box;
+} 
+.location_img{
+  width:25rpx;
+  height:30rpx;
+  padding:8rpx 20rpx 0 0
+}
+.upload_title
+{
+background-color: #eeeeee
+}
+.image_button{
+  width: 620rpx;
+  height: 90rpx;
+}
+.closeImv {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.location_text{
+    font-size:14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+    width: 450rpx;
+}

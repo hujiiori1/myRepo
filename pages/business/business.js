@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    flag: 0
   },
 
   /**
@@ -26,7 +26,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (this.data.flag == 0) {
+      this.setData({
+        flag: 1
+      })
+      wx.navigateTo({
+        url: '../webLink/webLink?link=' +encodeURIComponent('https://ga.wuxi.gov.cn/wx/qdefault.php?mod=c&s=ss5595175&wx_login=1'),
+      })
+    }
+    else {
+      this.setData({
+        flag: 0
+      })
+      wx.navigateTo({
+        url: '../main/main'
+      })
+    }
   },
 
   /**
